@@ -1,0 +1,24 @@
+<mvc:View controllerName="mealprapp.controller.Login"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+
+	<Page id="loginPage" title="{i18n>login}" class="sapUiResponsiveContentPadding" titleAlignment="Center">
+		<content class="sapUiResponsiveContentPadding">
+			<VBox alignItems="Center" class="sapUiLargeMarginTop">
+				<VBox width="55%">
+					<Label text="{i18n>labelEmail}" labelFor="emailInput" />
+					<Input id="emailInput" type="Email" placeholder="{i18n>emailInput}" value=""/>
+
+					<Label text="{i18n>labelPassword}" labelFor="passwordInput" />
+					<Input id="passwordInput" type="Password" placeholder="{i18n>passwordInput}" value=""/>
+				</VBox>
+				<HBox alignItems="Start" class="sapUiDemoFlexBoxSizeAdjustments sapUiSmallMargin" width="55%">
+					<HBox width="100%">
+						<Button type="Emphasized" text="{i18n>login}" press=""/>
+					</HBox>
+					<Button type="Transparent" text="{i18n>registerLink}" press="" class="sapUILargeMarginLeft"/>
+				</HBox>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

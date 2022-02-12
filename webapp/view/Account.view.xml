@@ -1,0 +1,9 @@
+<mvc:View controllerName="licenta.controller.Account"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <pages>
+        <Page id="" title="">
+
+        </Page>
+    </pages>
+</mvc:View>
