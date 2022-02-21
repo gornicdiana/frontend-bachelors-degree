@@ -1,16 +1,13 @@
-<mvc:View controllerName="licenta.controller.Welcome"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+<mvc:View controllerName="licenta.controller.Welcome" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true" 
     xmlns="sap.m">
-    <Shell id="shell">
-        <App id="app">
-            <pages>
-                <Page id="page" title="{i18n>title}">
-                    <headerContent >
-                        <Button text="Login" press="" type="Transparent"/>
-                        <Button text="Register" press="" type="Transparent"/>
-                    </headerContent>
-                </Page>
-            </pages>
-        </App>
-    </Shell>
+
+    <Page id="welcomePage" title="Welcome!">
+        <headerContent>
+            <Button id="loginButton" text="Login" press="goToLogin" type="Emphasized"/>
+            <Button id="registerButton" text="Register" press="goToRegister" type="Transparent"/>
+        </headerContent>
+    </Page>
+
 </mvc:View>

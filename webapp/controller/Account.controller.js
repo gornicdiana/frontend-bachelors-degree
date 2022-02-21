@@ -5,9 +5,7 @@ sap.ui.define([
         "use strict";
 
         return BaseController.extend("licenta.controller.Account", {
-            onInit: function () {
-
-            },
+            onInit: function () {}
 
         });
     });

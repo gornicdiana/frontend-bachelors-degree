@@ -1,64 +1,69 @@
-<mvc:View controllerName="mealprapp.controller.Register"
+<mvc:View controllerName="licenta.controller.Register"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core">
 
-    <Page id = "register" title="{i18n>register}" class="sapUiResponsiveContentPadding" titleAlignment="Center">
+    <Page id = "register" title="Register" class="sapUiResponsiveContentPadding">
         <content>
-            <VBox class="sapUiResponsiveMargin" 
-				alignItems = "Center">
-                <core:Icon src="sap-icon://customer" size="2.5rem"/>
-                <Text text = "{i18n>registerFormTitle}" />
-                <VBox width = "30%">
-                    <HBox  justifyContent = "SpaceBetween">
-                        <VBox class ="sapUiTinyMarginEnd">
-                            <Label 
+            <VBox id="registerVBoxID" class="sapUiResponsiveMargin" alignItems = "Center">
+                <core:Icon id="customerIconID" src="sap-icon://customer" size="2.5rem"/>
+                <Text id="titleID" text="Register" />
+                <VBox id="formVBoxID" width = "30%">
+                    <HBox id="nameHBoxID" justifyContent = "SpaceBetween">
+                        <VBox id="nameVBoxID" class ="sapUiTinyMarginEnd">
+                            <Label
+                                id="firstNameLabelID" 
                                 class = "sapUiSmallMarginTop" labelFor="firstNameInput"
-                                text = "{i18n>registerFirstNameText}"/>
+                                text = "Matricol Number"/>
                             <Input id="firstNameInput"
-                                required = "true" placeholder="{i18n>registerFirstNamePlaceholder}" valueStateText="{i18n>registerFirstNameStateValueText}" value=""
+                                required = "true" placeholder="Matricol Number..." valueStateText="{i18n>registerFirstNameStateValueText}" value=""
                                 change = "" />
                         </VBox>
-                        <VBox>
+                        <VBox id="lastnameVBoxID">
                             <Label 
+                                id="lastNameLabelID"
                                 class = "sapUiSmallMarginTop" labelFor="lastNameInput"
-                                text = "{i18n>registerLastNameText}"/>
+                                text = "Username"/>
                             <Input id="lastNameInput"                   
-                                required = "true" placeholder="{i18n>registerLastNamePlaceholder}" valueStateText="{i18n>registerLastNameStateValueText}"
+                                required = "true" placeholder="Username..." valueStateText="{i18n>registerLastNameStateValueText}"
                                 value =""
                                 change = "" />
                         </VBox>
                     </HBox>
                     <Label 
+                        id="emailLabelID"
                         class = "sapUiSmallMarginTop" labelFor="emailInput"
-                        text = "{i18n>registerEmailText}"/>
+                        text = "Email"/>
                     <Input id="emailInput"
-                        required = "true" placeholder="{i18n>registerEmailPlaceholder}" valueStateText="{i18n>registerEmailStateValueText}"
+                        required = "true" placeholder="Email..." valueStateText="{i18n>registerEmailStateValueText}"
                         value = ""
                         change = "" />
                     <Label 
+                        id="passwordLabelID"
                         class = "sapUiSmallMarginTop" labelFor="passwordInput"
-                        text = "{i18n>registerPasswordText}"/>
-                    <Label text="{i18n>registerPasswordInstructions}" wrapping="true" />
+                        text = "Password"/>
+                    
                     <Input id="passwordInput" type="Password"
-                        required = "true" placeholder="{i18n>registerPasswordPlaceholder}" valueStateText="{i18n>registerPasswordStateValueText}"
+                        required = "true" placeholder="Password..." valueStateText="{i18n>registerPasswordStateValueText}"
                         value = ""
                         change = "" />
 
                     <Input id="confirmPasswordInput" type="Password"
-                        required = "true" placeholder="{i18n>registerConfirmPasswordPlaceholder}" valueStateText="{i18n>registerConfirmPasswordStateValueText}"
+                        required = "true" placeholder="Confirm your password..." valueStateText="{i18n>registerConfirmPasswordStateValueText}"
                         value = ""
                         liveChange = "" />
                 </VBox>
                 <Link
-                    class = "smallLabel" text="{i18n>registerLinkText}"
-                    press = ""/>
+                    id="registerLinkID"
+                    class = "smallLabel" text="Already have an account?"
+                    press = "goToLogin"/>
                 <Button
+                    id="registerButtonID"
                     type = "Emphasized"
-                    text = "{i18n>registerButtonText}"
+                    text = "Register"
                     class = "sapUiSmallMarginTop"
-                    press = "">
+                    press = "goToHome">
                 </Button>
             </VBox>
         </content>

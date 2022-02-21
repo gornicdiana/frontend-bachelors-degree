@@ -1,9 +1,27 @@
-<mvc:View controllerName="licenta.controller.Home"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <pages>
-        <Page id="" title="">
+<mvc:View controllerName="licenta.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 
-        </Page>
-    </pages>
+    <SplitApp id="homeSplitAppID">
+        <detailPages>
+            <Page id="articlesSplitID" title="Articles">
+                <!-- <mvc:XMLView id = "articleFragmentID" viewName = "licenta.view.fragments.ArticlesFragent"/> -->
+            </Page>
+            <Page id="calendarSplitID" title="Calendar">
+                <!-- <c:Fragment fragmentName="licenta.view.fragments.CalendarFragent" type="XML"/> -->
+            </Page>
+            <Page id="accountSplitID" title="Account">
+                <!-- <c:Fragment fragmentName="licenta.view.fragments.AccountFragment" type="XML"/> -->
+            </Page>
+        </detailPages>
+        <masterPages>
+            <Page id="master" backgroundDesign="List">
+                <List id="listID" itemPress=".onListItemPress">
+                    <items>
+                        <StandardListItem id="articlesListID" title="Articles" type="Active" custom:to="articlesSplitID"/>
+                        <StandardListItem id="calendarListID" title="Calendar" type="Active" custom:to="calendarSplitID"/>
+                        <StandardListItem id="accountListID" title="Account" type="Active" custom:to="accountSplitID"/>
+                    </items>
+                </List>
+            </Page>
+        </masterPages>
+    </SplitApp>
 </mvc:View>
