@@ -1,8 +1,12 @@
 sap.ui.define(
-    ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "licenta/utils/AjaxClient", "licenta/utils/URLs"],
-    function (Controller, MessageToast, AjaxClient, URLs) {
+    ["sap/ui/core/mvc/Controller", 	"sap/ui/model/json/JSONModel",
+    "sap/m/MessageToast", "licenta/utils/AjaxClient", "licenta/utils/URLs"],
+    function (Controller, JSONModel, MessageToast, AjaxClient, URLs) {
         "use strict";
         return Controller.extend("licenta.controller.BaseController", {
+            onInit: function () {
+                this.getView().setModel(new JSONModel(), "therapistModel");
+            },
 
             getRouter: function () {
                 return sap.ui.core.UIComponent.getRouterFor(this);
