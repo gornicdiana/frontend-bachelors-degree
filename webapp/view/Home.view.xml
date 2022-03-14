@@ -6,7 +6,9 @@
                 <Label id="articlesLabelID" text="articles"/>
             </Page>
             <Page id="myTherapistSplitID" title=" My Therapist"></Page>
-            <Page id="therapistsSplitID" title=" My Therapist"></Page>
+            <Page id="therapistsSplitID" title=" All Therapists">
+                <c:Fragment fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
+            </Page>
             <Page id="profileSplitID" title="Profile"></Page>
             <Page id="calendarSplitID" title="Calendar">
             </Page>

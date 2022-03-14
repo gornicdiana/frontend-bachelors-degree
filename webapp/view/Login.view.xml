@@ -9,13 +9,13 @@
 			<VBox id="formVBox" alignItems="Center" class="sapUiLargeMarginTop">
 				<VBox id="inputsVBox" width="55%">
 					<Label id="emailLabelID" text="Email" labelFor="emailInput" />
-					<Input id="emailInputID" type="Email" placeholder="emailInput" />
+					<Input id="emailInputID" type="Email" placeholder="emailInput" value="{loginModel>/loginEmail}"/>
 
 					<Label id="passwordLabelID" text="Password" labelFor="passwordInput" />
-					<Input id="passwordInputID" type="Password" placeholder="passwordInput"/>
+					<Input id="passwordInputID" type="Password" placeholder="passwordInput" value="{loginModel>/loginPassword}"/>
 				</VBox>
 				<HBox id="buttonsHBox" alignItems="Start" class="sapUiDemoFlexBoxSizeAdjustments sapUiSmallMargin" width="55%">
-						<Button id="loginButton" type="Emphasized" text="Login" press="goToHome"/>
+						<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin"/>
 					    <Button id="registerButton" type="Transparent" text="Register" press="goToRegister" class="sapUILargeMarginLeft"/>
 				</HBox>
 			</VBox>
