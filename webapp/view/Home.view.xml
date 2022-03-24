@@ -1,16 +1,22 @@
-<mvc:View controllerName="licenta.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:unified="sap.ui.unified" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+<mvc:View controllerName="licenta.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:unified="sap.ui.unified"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 
     <SplitApp id="homeSplitAppID">
         <detailPages>
             <Page id="articlesSplitID" title="Articles">
-                <Label id="articlesLabelID" text="articles"/>
+                <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.ArticleCard" type="XML" />
             </Page>
             <Page id="myTherapistSplitID" title=" My Therapist"></Page>
             <Page id="therapistsSplitID" title=" All Therapists">
-                <c:Fragment fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
+                <c:Fragment id="therapistFragmentID" fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
             </Page>
             <Page id="profileSplitID" title="Profile"></Page>
             <Page id="calendarSplitID" title="Calendar">
+                <!-- <c:Fragment id="calendarFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" /> -->
             </Page>
             <Page id="accountSplitID" title="Account"></Page>
         </detailPages>

@@ -1,22 +1,22 @@
 <mvc:View controllerName="licenta.controller.Login"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m"
-    xmlns:l="sap.ui.layout"
-    xmlns:core="sap.ui.core">
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
 
 	<Page id="loginPage" title="login" class="sapUiResponsiveContentPadding">
 		<content>
 			<VBox id="formVBox" alignItems="Center" class="sapUiLargeMarginTop">
 				<VBox id="inputsVBox" width="55%">
 					<Label id="emailLabelID" text="Email" labelFor="emailInput" />
-					<Input id="emailInputID" type="Email" placeholder="emailInput" value="{loginModel>/loginEmail}"/>
+					<Input id="emailInputID" type="Email" placeholder="emailInput" value="{loginModel>/email}"/>
 
 					<Label id="passwordLabelID" text="Password" labelFor="passwordInput" />
-					<Input id="passwordInputID" type="Password" placeholder="passwordInput" value="{loginModel>/loginPassword}"/>
+					<Input id="passwordInputID" type="Password" placeholder="passwordInput" value="{loginModel>/password}"/>
 				</VBox>
 				<HBox id="buttonsHBox" alignItems="Start" class="sapUiDemoFlexBoxSizeAdjustments sapUiSmallMargin" width="55%">
-						<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin"/>
-					    <Button id="registerButton" type="Transparent" text="Register" press="goToRegister" class="sapUILargeMarginLeft"/>
+					<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin"/>
+					<Button id="registerButton" type="Transparent" text="Register" press="goToRegister" class="sapUILargeMarginLeft"/>
 				</HBox>
 			</VBox>
 		</content>

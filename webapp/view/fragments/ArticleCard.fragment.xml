@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards">
+    <f:Card id="articleCardID" class="sapUiMediumMargin" width="90%">
+        <f:header>
+            <card:Header id="articleNameHeaderID" title="{articleModel>/articleName}"/>
+        </f:header>
+        <f:content>
+            <VBox id="cardContentVBoxID" class="sapUiSmallMargin">
+                <GenericTag text="{articleModel>/articleCategory}" design="StatusIconHidden" status="Information" press="onPressCategoryLabel" class="sapUiSmallMarginBottom"/>
+                <VBox id="articleContentVBoxID">
+                    <FormattedText id="authorID" htmlText="{articleModel>/authorName}"/>
+                    <FormattedText id="contentID" htmlText="{articleModel>/articleContent}"/>
+                </VBox>
+                <VBox id="contactButtonVBoxID" alignItems="End" class="sapUiSmallMargin">
+                    <Button id="contactButtonID" text="Contact Therapist" press="onPressContactTherapistFromArticle"/>
+                </VBox>
+            </VBox>
+        </f:content>
+    </f:Card>
+</core:FragmentDefinition>

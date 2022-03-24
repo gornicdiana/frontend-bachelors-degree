@@ -1,23 +1,27 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:card="sap.f.cards">
-    <f:Card id="therapistCardID" class="sapUiMediumMargin" width="300px">
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards">
+    <f:Card id="therapistCardID" class="sapUiSmallMargin" width="300px">
         <f:header>
             <card:Header id="therapistNameHeaderID" title="{therapistModel>/therapistName}" subtitle="{therapistModel>/therapistDescription}"/>
         </f:header>
         <f:content>
             <VBox id="cardContentVBoxID">
-                <VBox id="contactDetailsVBoxID">
-                    <FormattedText id="contactDetailsLabelID" class="sapUiSmallMarginBegin" htmlText="{therapistCardModel>/contactDetailsHeader}"/>
-                    <FormattedText id="phoneLabelID" class="sapUiSmallMarginBegin" htmlText="{therapistCardModel>/phoneHeader}"/>
-                    <FormattedText id="phoneTextID" class="sapUiSmallMarginBegin" htmlText="{therapistModel>/phoneDetails}"/>
-                    <FormattedText id="emailLabelID" class="sapUiSmallMarginBegin" htmlText="{therapistCardModel>/emailHeader}"/>
-                    <FormattedText id="emailTextID" class="sapUiSmallMarginBegin" htmlText="{therapistModel>/emailDetails}"/>
+                <VBox id="contactDetailsVBoxID" class="sapUiSmallMargin">
+                    <FormattedText id="contactDetailsLabelID" htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                    <FormattedText id="phoneLabelID" htmlText="{therapistCardModel>/phoneHeader}"/>
+                    <FormattedText id="phoneTextID" htmlText="{therapistModel>/phoneDetails}"/>
+                    <FormattedText id="emailLabelID" htmlText="{therapistCardModel>/emailHeader}"/>
+                    <FormattedText id="emailTextID" htmlText="{therapistModel>/emailDetails}"/>
                 </VBox>
-                <VBox id="informationVBoxID">
-                    <FormattedText id="informationTextID" class="sapUiSmallMarginBegin sapUiMediumMarginTop" htmlText="{therapistCardModel>/informationHeader}"/>
-                    <FormattedText id="informationLabelID" class="sapUiSmallMarginBegin sapUiMediumMarginBottom" htmlText="{therapistModel>/information}"/>
+                <VBox id="informationVBoxID" class="sapUiSmallMargin">
+                    <FormattedText id="informationTextID" htmlText="{therapistCardModel>/informationHeader}"/>
+                    <FormattedText id="informationLabelID" htmlText="{therapistModel>/information}"/>
                 </VBox>
-                <VBox id="caldendarButtonID" alignItems="Center" class="sapUiMediumMarginBottom">
-                    <Button id="calendarCardButtonID" text="Make an appointment" type="Emphasized"/>
+                <VBox id="caldendarButtonID" alignItems="Center" class="sapUiSmallMargin">
+                    <Button id="calendarCardButtonID" text="Make an appointment" type="Emphasized" press="onPressMakeAppointment"/>
                 </VBox>
             </VBox>
         </f:content>
