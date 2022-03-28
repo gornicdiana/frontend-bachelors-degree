@@ -15,7 +15,6 @@ sap.ui.define([
 
         onInitUI: function () {
             let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
-            debugger;
             let therapistCardModel = new JSONModel({
                 contactDetailsHeader: '<h5 style="color: #0854A0; font-weight: bold;">' + oResourceBundle.getText("contactDetailsHeader") + "</h5>",
                 phoneHeader: '<p style="color: #6A6D70;">' + oResourceBundle.getText("phoneHeader") + "</p>",

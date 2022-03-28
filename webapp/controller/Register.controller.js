@@ -91,10 +91,24 @@ sap.ui.define([
         onRegisterUser: function () {
             if (this._isInputValid()) {
                 const email = this.byId("emailInput").getValue();
-                this.sendRegisterRequest();
+                this._findUserType(email);
             } else {
                 this.errorHandler("registerError");
             }
+        },
+
+        _findUserType: function (email) {
+            let studentUser = email.search("@student");
+            if (studentUser != -1) {
+                this.onRegisterStudent();
+            } else {
+                this.errorHandler("AccountNotPermitted");
+            }
+        },
+
+        onRegisterStudent: function () {
+            this.sendRegisterRequest();
+            this.getRouter().navTo("Home");
         },
 
         sendRegisterRequest: function () {
@@ -108,7 +122,6 @@ sap.ui.define([
             }
             this.post(URLs.postStudentUrl() + "/register", {oRegisterData}).then(data => {
                 this.userToken = data;
-                this.getRouter().navTo("Home");
             }).catch(err => {
                 this.errorHandler("registerPostError")
             })

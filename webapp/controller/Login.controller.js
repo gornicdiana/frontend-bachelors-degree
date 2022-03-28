@@ -14,7 +14,41 @@ sap.ui.define([
             return regexEmail.test(inputText);
         },
 
-        pressToLogin: async function () {
+        _findUserType: function (email) {
+            let studentUser = email.search("@student.upt");
+            let therapistUser = email.search("@cs.upt.ro");
+            debugger;
+            if (studentUser != -1) {
+                this.onLoginStudent();
+                debugger;
+            } else if (therapistUser != -1) {
+                this.onLoginTherapist();
+            } else {
+                this.errorHandler("AccountNotPermitted");
+            }
+        },
+
+        onLoginStudent: async function () {
+            const data = this.getView().getModel("loginModel").getData();
+            let existentStudent = await this.loginUser(data);
+            if (existentStudent == true) {
+                this.getRouter().navTo("Home");
+            } else {
+                errorHandler("StudentNotExist");
+            }
+        },
+
+        onLoginTherapist: async function () {
+            const data = this.getView().getModel("loginModel").getData();
+            let existentTherapist = await this.loginUser(data);
+            if (existentTherapist == true) {
+                this.getRouter().navTo("HomeTherapist");
+            } else {
+                errorHandler("TherapistNotExist");
+            }
+        },
+
+        pressToLogin: function () {
             const data = this.getView().getModel("loginModel").getData();
             const email = data.email;
             const password = data.password;
@@ -25,18 +59,21 @@ sap.ui.define([
             } else if (!this._validateEmail(email)) {
                 this.errorHandler("emailMessage");
             } else {
-                await this.loginUser(data);
+                this._findUserType(email);
             }
         },
 
         loginUser: async function (userData) {
+            debugger;
             this.post(URLs.getStudentUrl() + "/login", {userData}).then(data => {
+                debugger;
                 this.userToken = data;
-                this.getRouter().navTo("Home");
-
             }).catch(err => {
                 this.errorHandler("errorMessage");
+                return false;
             });
+            debugger;
+            return true;
         },
 
         goToRegister: function () {

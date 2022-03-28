@@ -1,0 +1,33 @@
+<mvc:View controllerName="licenta.controller.HomeTherapist"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:unified="sap.ui.unified"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+    <SplitApp id="homeSplitAppID">
+        <detailPages>
+            <Page id="myArticlesSplitID" title="My Articles">
+                <headerContent>
+                    <Button text="Add Article" type="Emphasized" press="onPressAddArticle"/>
+                </headerContent>
+                <content>
+                    <c:Fragment id="articleTherapistFragmentID" fragmentName="licenta.view.fragments.ArticleTherapistCard" type="XML" />
+                </content>
+            </Page>
+            <Page id="myCalendarSplitID" title="My Calendar"></Page>
+            <Page id="myProfileSplitID" title="My Profile"></Page>
+        </detailPages>
+        <masterPages>
+            <Page backgroundDesign="List">
+                <List itemPress=".onListItemPress">
+                    <items>
+                        <StandardListItem id="myArticlesListID" title="My Articles" type="Active" custom:to="myArticlesSplitID"/>
+                        <StandardListItem id="myCalendarListID" title="my Calendar" type="Active" custom:to="myCalendarSplitID"/>
+                        <StandardListItem id="myProfileListID" title=" My Ptofile" type="Active" custom:to="myProfileSplitID"/>
+                    </items>
+                </List>
+            </Page>
+        </masterPages>
+    </SplitApp>
+</mvc:View>
