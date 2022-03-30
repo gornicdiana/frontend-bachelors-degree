@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Dialog id="addArticleDialogID" class="sapUiSmallMarginBeginEnd" title="Add an Article">
+        <buttons>
+            <Button text="{i18n>Save}" press="onSaveAddArticle" type="Emphasized"/>
+            <Button text="{i18n>Cancel}" press="onCloseDialog" />
+        </buttons>
+        <VBox width="700px">
+            <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
+                <Label text="Title"/>
+                <TextArea width="100%" value="{therapistArticleModel>/articleTitle}"/>
+            </VBox>
+            <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
+                <Label text="Labels"/>
+                <MultiComboBox></MultiComboBox>
+            </VBox>
+            <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
+                <Label text="Content"/>
+                <TextArea width="100%" value="{therapistArticleModel>/articleContent}"/>
+            </VBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>
