@@ -3,9 +3,9 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
-    <f:Card class="sapUiMediumMargin" width="90%">
+    <f:Card id="therapistArticleCardID" class="sapUiMediumMargin" width="90%">
         <f:header>
-            <card:Header title="{articleModel>/articleName}"/>
+            <card:Header title="{therapistModel>/firstname}"/>
         </f:header>
         <f:content>
             <VBox id="cardTherapistContentVBoxID" class="sapUiSmallMargin">

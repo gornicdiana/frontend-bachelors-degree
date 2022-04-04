@@ -117,7 +117,7 @@
                     "target": ["Account"]
                 }, {
                     "name": "HomeTherapist",
-                    "pattern": "HomeTherapist",
+                    "pattern": "HomeTherapist/{token}",
                     "target": ["HomeTherapist"]
                 }
             ],
