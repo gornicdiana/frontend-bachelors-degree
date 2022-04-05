@@ -3,13 +3,24 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
-    <f:Card id="therapistArticleCardID" class="sapUiMediumMargin" width="90%">
-        <f:header>
-            <card:Header title="{therapistModel>/firstname}"/>
-        </f:header>
-        <f:content>
-            <VBox id="cardTherapistContentVBoxID" class="sapUiSmallMargin">
-            </VBox>
-        </f:content>
-    </f:Card>
+    <VBox items="{therapistArticleModel>/}">
+        <f:Card id="therapistArticleCardID" class="sapUiMediumMargin" width="90%">
+            <f:header>
+                <card:Header title="{therapistArticleModel>title}"/>
+            </f:header>
+            <f:content>
+                <VBox id="cardTherapistContentVBoxID" class="sapUiSmallMargin">
+                    <GenericTag text="{therapistArticleModel>category}" design="StatusIconHidden" status="Information" press="onPressCategoryLabel" class="sapUiSmallMarginBottom"/>
+                    <VBox >
+                        <FormattedText htmlText="{therapistModel>/firstname}"/>
+                        <FormattedText htmlText="{therapistModel>/lastname}"/>
+                        <FormattedText htmlText="{therapistArticleModel>body}"/>
+                    </VBox>
+                    <VBox alignItems="End">
+                        <Button text="Delete" type="Emphasized" press="onDeleteArticle"/>
+                    </VBox>
+                </VBox>
+            </f:content>
+        </f:Card>
+    </VBox>
 </core:FragmentDefinition>

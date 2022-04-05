@@ -1,0 +1,41 @@
+{
+    "Categories": [
+        {
+            "key": "0",
+            "name": "fear"
+        },
+        {
+            "key": "1",
+            "name": "anxiety"
+        },
+        {
+            "key": "2",
+            "name": "depression"
+        },
+        {
+            "key": "3",
+            "name": "saddness"
+        }, {
+            "key": "4",
+            "name": "loneliness"
+        }, {
+            "key": "5",
+            "name": "self esteem"
+        }, {
+            "key": "6",
+            "name": "social"
+        }, {
+            "key": "7",
+            "name": "learning"
+        }, {
+            "key": "8",
+            "name": "relationships"
+        }, {
+            "key": "9",
+            "name": "family"
+        }, {
+            "key": "10",
+            "name": "career"
+        }
+    ]
+}

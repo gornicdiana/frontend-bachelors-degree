@@ -8,16 +8,14 @@ sap.ui.define([
             this.onSetModels();
             let oRouter = this.getRouter();
             oRouter.getRoute("HomeTherapist").attachPatternMatched(this._onObjectMatched, this);
-            debugger;
-
         },
 
         _onObjectMatched: async function (oEvent) {
-            debugger;
+            let articleModel = new JSONModel();
+            this.getView().setModel(articleModel, "articleModel");
             this.userToken = oEvent.getParameter("arguments").token;
             await this.getTherapistData();
             await this.getTherapistArticles();
-            await this.initializeExistentArticles();
         },
 
         getTherapistData: async function () {
@@ -25,56 +23,13 @@ sap.ui.define([
             this.getView().getModel("therapistModel").setProperty("/email", getdata.email);
             this.getView().getModel("therapistModel").setProperty("/username", getdata.username);
             this.getView().getModel("therapistModel").setProperty("/phone", getdata.phone);
-            this.getView().getModel("therapistModel").setProperty("/firstname", getdata.firstname);
-            this.getView().getModel("therapistModel").setProperty("/lastname", getdata.lastname);
+            this.getView().getModel("therapistModel").setProperty("/firstname", '<h5 style="color: #0854A0;">' + getdata.firstname + '</h5>');
+            this.getView().getModel("therapistModel").setProperty("/lastname", '<h5 style="color: #0854A0; font-weight: bold;">' + getdata.lastname + '</h5>');
         },
 
         getTherapistArticles: async function () {
             const articles = await this.get(URLs.getArticleUrl() + "/myArticles", this.userToken);
             this.getView().getModel("therapistArticleModel").setData(articles);
-        },
-
-        initializeExistentArticles: async function () {
-            debugger;
-            let myArticles = this.getView().getModel("therapistArticleModel").getData();
-            debugger;
-            myArticles.forEach((article) => {
-                Fragment.load({id: "therapistArticleCardID", name: "licenta.view.fragments.ArticleTherapistCard", controller: this}).then(this._createArticleCard(article))
-            });
-        },
-
-        _createArticleCard: function (article) {
-            let therapist = this.getView().getModel("therapistModel").getData();
-            let cardVBox = this.byId("cardTherapistContentVBoxID");
-            debugger;
-            let articleContentVBox = new sap.m.VBox();
-            let editButtonVBox = new sap.m.VBox();
-            let articleTag = new sap.m.GenericTag();
-            let authorFormattedText = new sap.m.FormattedText({
-                htmlText: '<h6 style="color: #0854A0; font-weight: bold;">' + therapist.therapistName + "</h6>"
-            });
-            let contentFormattedText = new sap.m.FormattedText({
-                htmlText: "<p>" + article.articleContent + "</p>"
-            });
-            articleTag.setText(article.category);
-            articleTag.setDesign("StatusIconHidden");
-            articleTag.setStatus("Information");
-            articleTag.addStyleClass("sapUiSmallMarginBottom");
-
-            articleContentVBox.addStyleClass("sapUiSmallMargin");
-            articleContentVBox.addItem(articleTag);
-            articleContentVBox.addItem(authorFormattedText);
-            articleContentVBox.addDependent(contentFormattedText);
-
-            editButtonVBox.addStyleClass("sapUiSmallMargin");
-
-            cardVBox.addItem(articleTag);
-            cardVBox.addItem(articleContentVBox);
-            cardVBox.addItem(editButtonVBox);
-        },
-
-        onSaveAddArticle: function (oEvent) {
-            this._createArticleCard();
         },
 
         onListItemPress: function (oEvent) {
@@ -102,8 +57,22 @@ sap.ui.define([
             }
         },
 
+        onGetSelectedItem: function (oEvent) {
+            let newCategory = oEvent.getSource().getSelectedItem().getText();
+            this.getView().getModel("articleModel").setProperty("/category", newCategory);
+        },
+
+        onSaveArticle: async function (oEvent) {
+            const newArticleData = this.getView().getModel("articleModel").getData();
+            await this.post(URLs.getArticleUrl() + "/add", newArticleData, this.userToken).then(async (data) => {})
+            this.onCloseDialog();
+            this.getTherapistArticles();
+        },
+
         onCloseDialog: function () {
             this.pDialog.close();
         }
+
+        // TO DO: STERGE SI EDITEAZA ARTICOLE
     });
 });

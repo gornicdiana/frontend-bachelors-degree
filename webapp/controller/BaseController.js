@@ -22,8 +22,8 @@ sap.ui.define([
             return AjaxClient.get(url, data);
         },
 
-        post: function (url, data) {
-            return AjaxClient.post(url, data);
+        post: function (url, data, token) {
+            return AjaxClient.post(url, data, token);
         },
 
         delete: function (url) {

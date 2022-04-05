@@ -3,21 +3,23 @@
     xmlns:l="sap.ui.layout">
     <Dialog id="addArticleDialogID" class="sapUiSmallMarginBeginEnd" title="Add an Article">
         <buttons>
-            <Button text="{i18n>Save}" press="onSaveAddArticle" type="Emphasized"/>
+            <Button text="{i18n>Save}" press="onSaveArticle" type="Emphasized"/>
             <Button text="{i18n>Cancel}" press="onCloseDialog" />
         </buttons>
         <VBox width="700px">
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
                 <Label text="Title"/>
-                <TextArea width="100%" value="{therapistArticleModel>/articleTitle}"/>
+                <TextArea width="100%" value="{articleModel>/title}"/>
             </VBox>
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
                 <Label text="Labels"/>
-                <MultiComboBox></MultiComboBox>
+                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem">
+                    <core:Item key="{category>key}" text="{category>name}"/>
+                </ComboBox>
             </VBox>
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
                 <Label text="Content"/>
-                <TextArea width="100%" value="{therapistArticleModel>/articleContent}"/>
+                <TextArea width="100%" value="{articleModel>/body}"/>
             </VBox>
         </VBox>
     </Dialog>
