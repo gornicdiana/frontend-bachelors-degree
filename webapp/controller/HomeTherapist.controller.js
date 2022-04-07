@@ -90,6 +90,8 @@ sap.ui.define([
 
         // CALENDAR PAGE
         // TO DO: NU ARATA BINE ORA INITIAL IN CALENDAR
+
+        // TO DO: crapa la click pe a data fara appointment si butoanele nu fac nimic
         onAppointmentSelect: function (oEvent) {
             let source = oEvent.getSource();
             let appointment = oEvent.getParameter("appointment");
@@ -98,22 +100,28 @@ sap.ui.define([
             let endDate = appointment.getEndDate();
             endDate = endDate.toLocaleTimeString();
             let name = appointment.getTitle();
-            debugger;
             this.getView().getModel("appointmentDetailsModel").setProperty("/startDate", startDate);
             this.getView().getModel("appointmentDetailsModel").setProperty("/endDate", endDate);
             this.getView().getModel("appointmentDetailsModel").setProperty("/name", name);
-            debugger;
             if (!this.pDetailsPopover) {
-                debugger;
-                Fragment.load({id: "detailsPopoverID", name: "licenta.view.fragments.AppointmentDetailsPopOver", controller: this}).then((oDetailsPopover) => {
-                    this.getView().addDependent(oDetailsPopover);
-                    oDetailsPopover.openBy(source);
+                Fragment.load({name: "licenta.view.fragments.AppointmentDetailsPopOver", controller: this}).then((oDetailsPopover) => {
+                    this.pDetailsPopover = oDetailsPopover
+                    this.getView().addDependent(this.pDetailsPopover);
+                    this.pDetailsPopover.openBy(source);
                 });
             } else {
-                oDetailsPopover.openBy(source);
+                this.pDetailsPopover.openBy(source);
             }
-
         },
+
+        onAttendButton: function () {
+            this.pDetailsPopover.close();
+        },
+
+        onDenyButton: function () {
+            this.pDetailsPopover.close();
+        },
+
         onHeaderDaySelect: function () {},
         onCreateAppointment: function () {},
 
