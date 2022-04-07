@@ -5,17 +5,20 @@ sap.ui.define([
 
     return BaseController.extend("licenta.controller.HomeTherapist", {
         onInit: async function () {
+            this.getView().setModel(new JSONModel(), "appointmentDetailsModel");
             this.onSetModels();
             let oRouter = this.getRouter();
             oRouter.getRoute("HomeTherapist").attachPatternMatched(this._onObjectMatched, this);
         },
 
+        // GET DATA
         _onObjectMatched: async function (oEvent) {
             let articleModel = new JSONModel();
             this.getView().setModel(articleModel, "articleModel");
             this.userToken = oEvent.getParameter("arguments").token;
             await this.getTherapistData();
             await this.getTherapistArticles();
+            await this.getTherapistCalendar();
         },
 
         getTherapistData: async function () {
@@ -32,6 +35,16 @@ sap.ui.define([
             this.getView().getModel("therapistArticleModel").setData(articles);
         },
 
+        getTherapistCalendar: async function () {
+            const appointments = await this.get(URLs.getAppointmentUrl() + '/therapistCalendar', this.userToken);
+
+            appointments.forEach((appointment) => {
+                appointment.startDate = new Date(appointment.startDate);
+                appointment.endDate = new Date(appointment.endDate);
+            })
+            this.getView().getModel("appointmentModel").setData(appointments);
+        },
+
         onListItemPress: function (oEvent) {
             let pageID = oEvent.getParameter("listItem").getCustomData()[0].getValue();
             this.getSplitAppObj().toDetail(this.createId(pageID));
@@ -45,6 +58,8 @@ sap.ui.define([
             return result;
         },
 
+        // ARTICLES PAGE
+        // TO DO: STERGE SI EDITEAZA ARTICOLE
         onPressAddArticle: function () {
             if (!this.pDialog) {
                 Fragment.load({id: "addArticleDialogID", name: "licenta.view.fragments.AddArticleDialog", controller: this}).then((oDialog) => {
@@ -71,8 +86,40 @@ sap.ui.define([
 
         onCloseDialog: function () {
             this.pDialog.close();
+        },
+
+        // CALENDAR PAGE
+        // TO DO: NU ARATA BINE ORA INITIAL IN CALENDAR
+        onAppointmentSelect: function (oEvent) {
+            let source = oEvent.getSource();
+            let appointment = oEvent.getParameter("appointment");
+            let startDate = appointment.getStartDate();
+            startDate = startDate.toLocaleTimeString();
+            let endDate = appointment.getEndDate();
+            endDate = endDate.toLocaleTimeString();
+            let name = appointment.getTitle();
+            debugger;
+            this.getView().getModel("appointmentDetailsModel").setProperty("/startDate", startDate);
+            this.getView().getModel("appointmentDetailsModel").setProperty("/endDate", endDate);
+            this.getView().getModel("appointmentDetailsModel").setProperty("/name", name);
+            debugger;
+            if (!this.pDetailsPopover) {
+                debugger;
+                Fragment.load({id: "detailsPopoverID", name: "licenta.view.fragments.AppointmentDetailsPopOver", controller: this}).then((oDetailsPopover) => {
+                    this.getView().addDependent(oDetailsPopover);
+                    oDetailsPopover.openBy(source);
+                });
+            } else {
+                oDetailsPopover.openBy(source);
+            }
+
+        },
+        onHeaderDaySelect: function () {},
+        onCreateAppointment: function () {},
+
+        handleStartDateChange: function (oEvent) {
+            var oStartDate = oEvent.getParameter("date");
         }
 
-        // TO DO: STERGE SI EDITEAZA ARTICOLE
     });
 });

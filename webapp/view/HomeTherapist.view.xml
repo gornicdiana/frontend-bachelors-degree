@@ -15,7 +15,11 @@
                     <c:Fragment id="articleTherapistFragmentID" fragmentName="licenta.view.fragments.ArticleTherapistCard" type="XML" />
                 </content>
             </Page>
-            <Page id="myCalendarSplitID" title="My Calendar"></Page>
+            <Page id="myCalendarSplitID" title="My Calendar">
+                <content>
+                    <c:Fragment id="calendarTherapistFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" />
+                </content>
+            </Page>
             <Page id="myProfileSplitID" title="My Profile"></Page>
         </detailPages>
         <masterPages>
@@ -23,8 +27,8 @@
                 <List itemPress=".onListItemPress">
                     <items>
                         <StandardListItem id="myArticlesListID" title="My Articles" type="Active" custom:to="myArticlesSplitID"/>
-                        <StandardListItem id="myCalendarListID" title="my Calendar" type="Active" custom:to="myCalendarSplitID"/>
-                        <StandardListItem id="myProfileListID" title=" My Ptofile" type="Active" custom:to="myProfileSplitID"/>
+                        <StandardListItem id="myCalendarListID" title="My Calendar" type="Active" custom:to="myCalendarSplitID"/>
+                        <StandardListItem id="myProfileListID" title=" My Profile" type="Active" custom:to="myProfileSplitID"/>
                     </items>
                 </List>
             </Page>

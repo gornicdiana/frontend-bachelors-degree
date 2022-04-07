@@ -1,18 +1,23 @@
-<core:FragmentDefinition controllerName="sap.m.sample.SinglePlanningCalendarCreateApp.Page"
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:unified="sap.ui.unified"
-    xmlns="sap.m">
+    xmlns:f="sap.f"
+    xmlns:unified="sap.ui.unified">
 
     <VBox class="sapUiSmallMargin">
-        <SinglePlanningCalendar id="myCalendar" title= "My Calendar" appointmentSelect="" headerDateSelect="" startDateChange="" startDate="" appointments="">
+        <SinglePlanningCalendar id="myCalendar" title= "My Calendar" fullDay="false" startHour="8" endHour="20" appointmentSelect="onAppointmentSelect" headerDateSelect="onHeaderDaySelect" startDateChange="handleStartDateChange" appointments="{appointmentModel>/}">
             <actions>
-                <Button id="addNewAppointment" text="Create" press="AonppointmentCreate"/>
+                <Button id="addNewAppointment" text="Create" press="onCreateAppointment"/>
             </actions>
+            <views>
+                <SinglePlanningCalendarDayView key="DayView" title="Day" />
+                <SinglePlanningCalendarWorkWeekView key="WorkWeekView" title="Work Week" />
+                <SinglePlanningCalendarWeekView key="WeekView" title="Week" />
+            </views>
             <appointments>
-                <unified:CalendarAppointment title= "{title}" text= "{text}" type= "{type}" icon= "{icon}" startDate= "{startDate}" endDate= "{endDate}">
+                <unified:CalendarAppointment title= "{appointmentModel>name}" startDate= "{appointmentModel>startDate}" endDate= "{appointmentModel>endDate}">
                 </unified:CalendarAppointment>
             </appointments>
         </SinglePlanningCalendar>
     </VBox>
-
 </core:FragmentDefinition>

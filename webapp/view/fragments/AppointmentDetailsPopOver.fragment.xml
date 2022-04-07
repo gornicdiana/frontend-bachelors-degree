@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <ResponsivePopover id="detailsPopoverID" title="{appointmentDetailsModel>/name}" class="sapUiResponsivePadding--header" placement="Auto">
+        <beginButton>
+            <Button text="Attend" type="Emphasized" press="onAttendButton"/>
+        </beginButton>
+        <endButton>
+            <Button text="Deny" press="onDenyButton"/>
+        </endButton>
+        <f:SimpleForm id="appointmentEditForm" editable="false" layout="ResponsiveGridLayout" singleContainerFullSize="false">
+            <Label text="Additional information"/>
+            <Label text="From"/>
+            <Text text="{appointmentDetailsModel>/startDate}"/>
+            <Label text="To" />
+            <Text text="{appointmentDetailsModel>/endDate}"/>
+            <Label text="Category"/>
+            <Text id="appTypeText" text="{appointmentDetailsModel>/name}"/>
+        </f:SimpleForm>
+    </ResponsivePopover>
+</core:FragmentDefinition>
