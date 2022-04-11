@@ -20,7 +20,11 @@
                     <c:Fragment id="calendarTherapistFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" />
                 </content>
             </Page>
-            <Page id="myProfileSplitID" title="My Profile"></Page>
+            <Page id="myProfileSplitID" title="My Profile">
+                <headerContent>
+                    <Button text="Logout" type="Emphasized" press="onPressLogout"/>
+                </headerContent>
+            </Page>
         </detailPages>
         <masterPages>
             <Page backgroundDesign="List">

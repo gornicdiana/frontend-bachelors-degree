@@ -4,13 +4,14 @@
     "private": true,
     "description": "",
     "keywords": [
-        "ui5", "openui5", "sapui5"
+        "ui5",
+        "openui5",
+        "sapui5"
     ],
     "main": "webapp/index.html",
-    "dependencies": {},
     "devDependencies": {
         "@sap/ux-ui5-tooling": "1",
-        "@ui5/cli": "^2.14.4"
+        "@ui5/cli": "^2.14.7"
     },
     "scripts": {
         "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#licenta-display\"",
@@ -25,7 +26,9 @@
         "int-tests": "fiori run --open test/integration/opaTests.qunit.html"
     },
     "ui5": {
-        "dependencies": ["@sap/ux-ui5-tooling"]
+        "dependencies": [
+            "@sap/ux-ui5-tooling"
+        ]
     },
     "sapuxLayer": "CUSTOMER_BASE"
 }

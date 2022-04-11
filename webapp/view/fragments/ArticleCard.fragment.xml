@@ -3,21 +3,23 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
-    <f:Card id="articleCardID" class="sapUiMediumMargin" width="90%">
-        <f:header>
-            <card:Header id="articleNameHeaderID" title="{articleModel>/articleName}"/>
-        </f:header>
-        <f:content>
-            <VBox id="cardContentVBoxID" class="sapUiSmallMargin">
-                <GenericTag text="{articleModel>/articleCategory}" design="StatusIconHidden" status="Information" press="onPressCategoryLabel" class="sapUiSmallMarginBottom"/>
-                <VBox id="articleContentVBoxID">
-                    <FormattedText id="authorID" htmlText="{articleModel>/authorName}"/>
-                    <FormattedText id="contentID" htmlText="{articleModel>/articleContent}"/>
+    <VBox items="{articleModel>/}">
+        <f:Card id="articleCardID" visible="{articleModel>visible}" class="sapUiMediumMargin" width="90%">
+            <f:header>
+                <card:Header id="articleNameHeaderID" title="{articleModel>title}"/>
+            </f:header>
+            <f:content>
+                <VBox id="cardContentVBoxID" class="sapUiSmallMargin">
+                    <GenericTag text="{articleModel>category}" design="StatusIconHidden" status="Information" class="sapUiSmallMarginBottom"/>
+                    <VBox id="articleContentVBoxID">
+                        <FormattedText id="authorID" htmlText="{articleModel>author}"/>
+                        <FormattedText id="contentID" htmlText="{articleModel>body}"/>
+                    </VBox>
+                    <VBox id="contactButtonVBoxID" alignItems="End" class="sapUiSmallMargin">
+                        <Button id="contactButtonID" text="Contact Therapist" press="onPressContactTherapistFromArticle"/>
+                    </VBox>
                 </VBox>
-                <VBox id="contactButtonVBoxID" alignItems="End" class="sapUiSmallMargin">
-                    <Button id="contactButtonID" text="Contact Therapist" press="onPressContactTherapistFromArticle"/>
-                </VBox>
-            </VBox>
-        </f:content>
-    </f:Card>
+            </f:content>
+        </f:Card>
+    </VBox>
 </core:FragmentDefinition>

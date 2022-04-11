@@ -113,7 +113,7 @@
                 },
                 {
                     "name": "Home",
-                    "pattern": "Home",
+                    "pattern": "Home/{token}",
                     "target": ["Home"]
                 }, {
                     "name": "Account",

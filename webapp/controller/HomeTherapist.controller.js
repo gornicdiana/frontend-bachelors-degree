@@ -16,6 +16,7 @@ sap.ui.define([
             let articleModel = new JSONModel();
             this.getView().setModel(articleModel, "articleModel");
             this.userToken = oEvent.getParameter("arguments").token;
+            debugger;
             await this.getTherapistData();
             await this.getTherapistArticles();
             await this.getTherapistCalendar();
@@ -127,7 +128,11 @@ sap.ui.define([
 
         handleStartDateChange: function (oEvent) {
             var oStartDate = oEvent.getParameter("date");
-        }
+        },
 
+        // PROFILE PAGE
+        onPressLogout: function () {
+            this.getRouter().navTo("Welcome");
+        }
     });
 });

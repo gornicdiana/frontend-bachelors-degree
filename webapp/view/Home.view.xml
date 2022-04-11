@@ -8,17 +8,29 @@
     <SplitApp id="homeSplitAppID">
         <detailPages>
             <Page id="articlesSplitID" title="Articles">
+                <HBox width="100%" class="sapUiSmallMargin">
+                    <Button text="All" press="onPressAll"/>
+                    <OverflowToolbar id="toolbar" content="{category>/Categories}" width="100%">
+                        <Button text="{category>name}" press="onPressCategoryLabel"/>
+                    </OverflowToolbar>
+                </HBox>
                 <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.ArticleCard" type="XML" />
             </Page>
-            <Page id="myTherapistSplitID" title=" My Therapist"></Page>
             <Page id="therapistsSplitID" title=" All Therapists">
                 <c:Fragment id="therapistFragmentID" fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
             </Page>
+            <Page id="myTherapistSplitID" title=" My Therapist"></Page>
             <Page id="profileSplitID" title="Profile"></Page>
             <Page id="calendarSplitID" title="Calendar">
-                <!-- <c:Fragment id="calendarFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" /> -->
+                <content>
+                    <c:Fragment id="calendarStudentFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" />
+                </content>
             </Page>
-            <Page id="accountSplitID" title="Account"></Page>
+            <Page id="accountSplitID" title="Account">
+                <headerContent>
+                    <Button text="Logout" type="Emphasized" press="onPressLogout"/>
+                </headerContent>
+            </Page>
         </detailPages>
         <masterPages>
             <Page id="masterHome" backgroundDesign="List">

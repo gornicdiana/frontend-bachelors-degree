@@ -46,7 +46,7 @@ sap.ui.define([
             const data = this.getView().getModel("loginModel").getData();
             let existentStudent = await this.loginStudent(data);
             if (existentStudent) {
-                this.getRouter().navTo("Home");
+                this.getRouter().navTo("Home", {token: this.userToken});
             } else {
                 this.errorHandler("StudentNotExist");
             }
@@ -54,22 +54,11 @@ sap.ui.define([
 
         loginStudent: async function (userData) {
             let res;
-            await this.post(URLs.getStudentUrl() + "/login", userData).then(async (data) => {
-                this.userToken = data;
-                this.getStudentData();
-                res = true;
-            }).catch(async (err) => {
-                this.errorHandler("errorMessage");
-                res = false;
-            });
+            const student = await this.post(URLs.getStudentUrl() + "/login", userData);
+            this.userToken = student;
+            debugger;
+            res = true;
             return res;
-        },
-
-        getStudentData: function () {
-            this.get(URLs.getStudentUrl() + "/info", this.userToken).then((data) => {
-                this.getView().getModel("studentModel").setProperty("/email", data.email);
-                this.getView().getModel("studentModel").setProperty("/username", data.username);
-            });
         },
 
         onLoginTherapist: async function () {
@@ -84,9 +73,8 @@ sap.ui.define([
 
         loginTherapist: async function (userData) {
             let res;
-            const loginUser = await this.post(URLs.getTherapistUrl() + "/login", userData);
-            this.userToken = loginUser;
-
+            const therapist = await this.post(URLs.getTherapistUrl() + "/login", userData);
+            this.userToken = therapist;
             res = true;
             return res;
         },
