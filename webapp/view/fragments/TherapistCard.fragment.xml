@@ -2,31 +2,43 @@
     xmlns:core="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
-    xmlns:card="sap.f.cards">
-    <VBox fitContainer="true" alignItems="Stretch" items="{therapistModel>/}">
-        <f:Card id="therapistCardID" class="sapUiSmallMargin" width="300px">
-            <f:header>
-                <card:Header id="therapistNameHeaderID" title="{therapistModel>lastname}" subtitle="{therapistModel>firstname}"/>
-            </f:header>
-            <f:content>
-                <VBox id="cardContentVBoxID">
-                    <VBox id="contactDetailsVBoxID" class="sapUiSmallMargin">
-                        <FormattedText id="contactDetailsLabelID" htmlText="{therapistCardModel>/contactDetailsHeader}"/>
-                        <FormattedText id="phoneLabelID" htmlText="{therapistCardModel>/phoneHeader}"/>
-                        <FormattedText id="phoneTextID" htmlText="{therapistModel>phone}"/>
-                        <FormattedText id="emailLabelID" htmlText="{therapistCardModel>/emailHeader}"/>
-                        <FormattedText id="emailTextID" htmlText="{therapistModel>email}"/>
-                    </VBox>
-                    <VBox id="informationVBoxID" class="sapUiSmallMargin">
-                        <FormattedText id="informationTextID" htmlText="{therapistCardModel>/informationHeader}"/>
-                        <!-- <FormattedText id="informationLabelID" htmlText="{therapistModel>/information}"/> -->
-                    </VBox>
-                    <VBox id="caldendarButtonID" alignItems="Center" class="sapUiSmallMargin">
-                        <Button id="calendarCardButtonID" text="Make an appointment" type="Emphasized" press="onPressMakeAppointment"/>
-                    </VBox>
+    xmlns:grid="sap.ui.layout.cssgrid">
+    <f:GridList items="{therapistModel>/}">
+        <f:customLayout>
+            <grid:ResponsiveColumnLayout />
+        </f:customLayout>
+
+        <f:GridListItem class="sapUiSmallMargin">
+            <f:layoutData>
+                <grid:ResponsiveColumnItemLayoutData columns="4" rows="3" />
+            </f:layoutData>
+            <VBox class="sapUiSmallMarginBegin">
+                <VBox class="sapUiMediumMarginTop">
+                    <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
                 </VBox>
-            </f:content>
-        </f:Card>
-    </VBox>
+                <VBox>
+                    <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                    <VBox>
+                        <HBox alignItems="Center">
+                            <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
+                            <FormattedText htmlText="{therapistModel>phone}"/>
+                        </HBox>
+                        <HBox alignItems="Center">
+                            <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
+                            <FormattedText htmlText="{therapistModel>email}"/>
+                        </HBox>
+                    </VBox>
+                    <HBox alignItems="Center">
+                        <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
+                        <FormattedText htmlText="{therapistModel>/information}"/>
+                    </HBox>
+                </VBox>
+                <HBox justifyContent="Center" alignItems="Center">
+                    <Button text="Make an appointment" type="Emphasized" class="sapUiSmallMargin" press="onPressMakeAppointment"/>
+                    <Button text="View Profile" class="sapUiSmallMargin" press=""/>
+                </HBox>
+            </VBox>
+        </f:GridListItem>
+    </f:GridList>
 
 </core:FragmentDefinition>

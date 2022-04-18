@@ -13,6 +13,7 @@ sap.ui.define([
             this.getView().setModel(new JSONModel(), "therapistArticleModel");
             this.getView().setModel(new JSONModel(), "articleModel");
             this.getView().setModel(new JSONModel(), "appointmentModel");
+            this.getView().setModel(new JSONModel(), "therapistCardModel");
             this.userToken = "";
         },
 
@@ -28,12 +29,12 @@ sap.ui.define([
             return AjaxClient.post(url, data, token);
         },
 
-        delete: function (url) {
-            return AjaxClient.delete(url);
+        delete: function (url, data, token) {
+            return AjaxClient.delete(url, data, token);
         },
 
-        put: function (url, data) {
-            return AjaxClient.put(url, data);
+        put: function (url, data, token) {
+            return AjaxClient.put(url, data, token);
         },
 
         errorHandler: function (errorMessageName) {

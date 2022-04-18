@@ -15,7 +15,6 @@ sap.ui.define([
             this.onSetModels();
             let oRouter = this.getRouter();
             oRouter.getRoute("Home").attachPatternMatched(this._onObjectMatched, this);
-
         },
 
         _onObjectMatched: async function (oEvent) {
@@ -24,6 +23,7 @@ sap.ui.define([
             await this.getAllArticles();
             await this.getStudentCalendar();
             await this.getAllTherapists();
+            await this.formatTherapistCardsText();
         },
 
         getStudentData: async function () {
@@ -53,21 +53,28 @@ sap.ui.define([
 
         getAllTherapists: async function () {
             const therapists = await this.get(URLs.getTherapistUrl() + "/allTherapists");
+            therapists.forEach((therapist) => {
+                therapist.firstname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.firstname + '</h3>';
+                therapist.lastname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.lastname + '</h3>';
+            })
             this.getView().getModel("therapistModel").setData(therapists);
+
+        },
+
+        formatTherapistCardsText: async function () {
+            let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+            let therapistCardModel = this.getView().getModel("therapistCardModel");
+            therapistCardModel.contactDetailsHeader = '<h5 style="color: #0854A0;">' + oResourceBundle.getText("contactDetailsHeader") + "</h5>",
+            therapistCardModel.phoneHeader = '<p style="color: #0854A0;">' + oResourceBundle.getText("phoneHeader") + '</p>',
+            therapistCardModel.emailHeader = '<p style="color: #0854A0;">' + oResourceBundle.getText("emailHeader") + '</p>',
+            therapistCardModel.informationHeader = '<p style="color: #0854A0;">' + oResourceBundle.getText("informationHeader") + '</p>'
+            this.getView().getModel("therapistCardModel").setData(therapistCardModel);
         },
 
         // SPLIT APP PAGES NAVIGATION
         onListItemPress: function (oEvent) {
             let pageID = oEvent.getParameter("listItem").getCustomData()[0].getValue();
             this.getSplitAppObj().toDetail(this.createId(pageID));
-        },
-
-        onPressGoToMyTherapist: function () {
-            this.getSplitAppObj().toMaster(this.createId("masterMyTherapist"));
-        },
-
-        onPressMasterBack: function () {
-            this.getSplitAppObj().backMaster();
         },
 
         getSplitAppObj: function () {
@@ -79,7 +86,6 @@ sap.ui.define([
         },
 
         // ARTICLES PAGE
-
         // TO DO: nu se afiseaza frumos tag-urile
         onPressCategoryLabel: function (oEvent) {
             let allArticles = this.getView().getModel("articleModel").getData();
@@ -121,6 +127,16 @@ sap.ui.define([
             } else {
                 this.pCreatePopover.open();
             }
+        },
+
+        onSaveNewAppointment: async function (oEvent) {
+            debugger;
+            const newAppointmentData = this.getView().getModel("appointmentModel").getData();
+            await this.post(URLs.getAppointmentUrl() + "/add", newAppointmentData, this.userToken).then(async (data) => {
+                console.log(data);
+            })
+            this.onCloseDialog();
+            this.getTherapistArticles();
         },
 
         // PROFILE PAGE

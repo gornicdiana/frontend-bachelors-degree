@@ -12,11 +12,14 @@
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false">
                 <Label text="Title"/>
-                <Input id="appTitle"/>
-                <Label text="From" labelFor="startDate"/>
-                <DateTimePicker id="DTPStartDate" required="true" visible="{= !${allDay>/allDay}}" change="handleDateTimePickerChange" valueFormat="dd/MM/yyyy, hh:mm aa"/>
-                <Label text="To" labelFor="endDate"/>
-                <DateTimePicker id="DTPEndDate" required="true" visible="{= !${allDay>/allDay}}" change="handleDateTimePickerChange"/>
+                <Input id="appTitle" value="{appointmentModel>/name}"/>
+                <ComboBox id="therapistsComboBoxID" items="{therapistModel>/}" change="onGetSelectedItem">
+                    <core:Item text="{therapistModel>lastname} {therapistModel>firstname}"/>
+                </ComboBox>
+                <Label text="From"/>
+                <DateTimePicker required="true" displayFormat="short" change="handleDateTimePickerChange" value="{appointmentModel>/startDate}"/>
+                <Label text="To"/>
+                <DateTimePicker required="true" displayFormat="short" change="handleDateTimePickerChange" value="{appointmentModel>/endDate}"/>
                 <Label text="Category"/>
                 <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem">
                     <core:Item key="{category>key}" text="{category>name}"/>

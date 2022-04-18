@@ -16,10 +16,10 @@ sap.ui.define([
             let articleModel = new JSONModel();
             this.getView().setModel(articleModel, "articleModel");
             this.userToken = oEvent.getParameter("arguments").token;
-            debugger;
             await this.getTherapistData();
             await this.getTherapistArticles();
             await this.getTherapistCalendar();
+            await this.formatTherapistCardsText();
         },
 
         getTherapistData: async function () {
@@ -29,6 +29,7 @@ sap.ui.define([
             this.getView().getModel("therapistModel").setProperty("/phone", getdata.phone);
             this.getView().getModel("therapistModel").setProperty("/firstname", '<h5 style="color: #0854A0;">' + getdata.firstname + '</h5>');
             this.getView().getModel("therapistModel").setProperty("/lastname", '<h5 style="color: #0854A0; font-weight: bold;">' + getdata.lastname + '</h5>');
+            this.getView().getModel("therapistModel").setProperty("/info", getdata.information);
         },
 
         getTherapistArticles: async function () {
@@ -44,6 +45,16 @@ sap.ui.define([
                 appointment.endDate = new Date(appointment.endDate);
             })
             this.getView().getModel("appointmentModel").setData(appointments);
+        },
+
+        formatTherapistCardsText: async function () {
+            let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+            let therapistCardModel = this.getView().getModel("therapistCardModel");
+            therapistCardModel.fisrtnameLabel = '<h4>' + oResourceBundle.getText("fisrtnameLabel") + "</h4>",
+            therapistCardModel.lastnameLabel = '<h4>' + oResourceBundle.getText("lastnameLabel") + '</h4>',
+            therapistCardModel.phone = '<h4>' + oResourceBundle.getText("phone") + '</h4>',
+            therapistCardModel.description = '<h4>' + oResourceBundle.getText("description") + '</h4>'
+            this.getView().getModel("therapistCardModel").setData(therapistCardModel);
         },
 
         onListItemPress: function (oEvent) {
@@ -78,7 +89,7 @@ sap.ui.define([
             this.getView().getModel("articleModel").setProperty("/category", newCategory);
         },
 
-        onSaveArticle: async function (oEvent) {
+        onSaveArticle: async function () {
             const newArticleData = this.getView().getModel("articleModel").getData();
             await this.post(URLs.getArticleUrl() + "/add", newArticleData, this.userToken).then(async (data) => {})
             this.onCloseDialog();
@@ -87,6 +98,15 @@ sap.ui.define([
 
         onCloseDialog: function () {
             this.pDialog.close();
+        },
+
+        onDeleteArticle: async function (oEvent) {
+            debugger;
+            let title = oEvent.getSource().getParent().getParent().getParent().getAggregation("header").getProperty("title");
+            await this.delete(URLs.getArticleUrl() + "/delete", {
+                title
+            }, this.userToken).then(async (data) => {})
+            debugger;
         },
 
         // CALENDAR PAGE
@@ -131,6 +151,13 @@ sap.ui.define([
         },
 
         // PROFILE PAGE
+        onPressUpdateProfileButton: async function () {
+            const infoData = this.getView().getModel("therapistModel").getData().info;
+            const token = this.userToken;
+            await this.put(URLs.getTherapistUrl() + "/update", {
+                infoData
+            }, token).then(async (data) => {})
+        },
         onPressLogout: function () {
             this.getRouter().navTo("Welcome");
         }

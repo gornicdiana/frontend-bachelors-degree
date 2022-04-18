@@ -40,13 +40,16 @@ sap.ui.define([], function () {
             });
         },
 
-        put: function (sUrl, oBody) {
+        put: function (sUrl, data, token) {
             return new Promise(function (resolve, reject) {
                 $.ajax({
                     url: sUrl,
                     type: "PUT",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(oBody),
+                    data: JSON.stringify(data),
+                    headers: {
+                        authorization: token
+                    },
+                    contentType: "application/json;charset=utf-8",
                     success: function (data) {
                         resolve(data);
                     },
@@ -57,12 +60,16 @@ sap.ui.define([], function () {
             });
         },
 
-        delete: function (sUrl) {
-            var that = this;
+        delete: function (sUrl, data, token) {
             return new Promise(function (resolve, reject) {
                 $.ajax({
                     url: sUrl,
                     type: "DELETE",
+                    data: JSON.stringify(data),
+                    headers: {
+                        authorization: token
+                    },
+                    contentType: "application/json;charset=utf-8",
                     success: function (data) {
                         resolve(data);
                     },
