@@ -101,12 +101,12 @@ sap.ui.define([
         },
 
         onDeleteArticle: async function (oEvent) {
-            debugger;
             let title = oEvent.getSource().getParent().getParent().getParent().getAggregation("header").getProperty("title");
             await this.delete(URLs.getArticleUrl() + "/delete", {
                 title
             }, this.userToken).then(async (data) => {})
-            debugger;
+            this.getTherapistArticles();
+
         },
 
         // CALENDAR PAGE
