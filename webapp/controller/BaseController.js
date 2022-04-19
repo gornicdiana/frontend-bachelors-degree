@@ -14,6 +14,8 @@ sap.ui.define([
             this.getView().setModel(new JSONModel(), "articleModel");
             this.getView().setModel(new JSONModel(), "appointmentModel");
             this.getView().setModel(new JSONModel(), "therapistCardModel");
+            this.getView().setModel(new JSONModel(), "therapistProfileModel");
+            this.getView().setModel(new JSONModel(), "newAppointmentModel");
             this.userToken = "";
         },
 

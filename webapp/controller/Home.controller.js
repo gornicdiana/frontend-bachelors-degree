@@ -53,10 +53,10 @@ sap.ui.define([
 
         getAllTherapists: async function () {
             const therapists = await this.get(URLs.getTherapistUrl() + "/allTherapists");
-            therapists.forEach((therapist) => {
-                therapist.firstname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.firstname + '</h3>';
-                therapist.lastname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.lastname + '</h3>';
-            })
+            // therapists.forEach((therapist) => {
+            //     therapist.firstname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.firstname + '</h3>';
+            //     therapist.lastname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.lastname + '</h3>';
+            // })
             this.getView().getModel("therapistModel").setData(therapists);
 
         },
@@ -110,14 +110,39 @@ sap.ui.define([
             this.getView().getModel("articleModel").setData(allArticles);
         },
 
-        onPressContactTherapistFromArticle: function () {},
+        _findAuthorOfArticle: function (oEvent) {
+            let selectedArticlePath = oEvent.getSource().getBindingContext("articleModel").getPath();
+            selectedArticlePath = selectedArticlePath.slice(-1);
+            let selectedArticle = this.getView().getModel("articleModel").getData()[selectedArticlePath];
+            let therapists = this.getView().getModel("therapistModel").getData();
+            therapists.forEach((therapist) => {
+                if (therapist.email == selectedArticle.email) {
+                    this.getView().getModel("therapistProfileModel").setData(therapist);
+                }
+            })
+        },
+
+        // TO DO: sa nu poti alege alt therapist aici
+        onPressContactTherapistFromArticle: function (oEvent) {
+            this._findAuthorOfArticle(oEvent);
+            if (!this.pProfilePopover) {
+                Fragment.load({name: "licenta.view.fragments.TherapistProfileDialog", controller: this}).then((oProfilePopover) => {
+                    this.pProfilePopover = oProfilePopover;
+                    this.getView().addDependent(this.pProfilePopover);
+                    this.pProfilePopover.open();
+                });
+            } else {
+                this.pProfilePopover.open();
+            }
+        },
+
+        onCloseProfileDialog: function () {
+            this.pProfilePopover.close();
+        },
 
         // ALL THERAPISTS PAGE
-        onPressMakeAppointment: function () {},
-
-        // MY THERAPIST PAGE
-        // TO DO: sterge secundele din DateTimePicker
-        onCreateAppointment: function () {
+        // TO DO: sa nu apara make appointment in dialogul cu profile aici
+        onPressMakeAppointment: function () {
             if (!this.pCreatePopover) {
                 Fragment.load({name: "licenta.view.fragments.CreateAppointmentDialog", controller: this}).then((oCreatePopover) => {
                     this.pCreatePopover = oCreatePopover
@@ -129,14 +154,27 @@ sap.ui.define([
             }
         },
 
+        onCloseAppointmentDialog: function () {
+            this.pCreatePopover.close();
+        },
+
         onSaveNewAppointment: async function (oEvent) {
             debugger;
-            const newAppointmentData = this.getView().getModel("appointmentModel").getData();
+            const newAppointmentData = this.getView().getModel("newAppointmentModel").getData();
+            let allTherapists = this.getView().getModel("therapistModel").getData();
+            debugger;
+            allTherapists.forEach((therapist) => {
+                if ((therapist.lastname + " " + therapist.firstname) === newAppointmentData.therapist) {
+                    debugger;
+                    newAppointmentData.therapist = therapist.email;
+                }
+            })
             await this.post(URLs.getAppointmentUrl() + "/add", newAppointmentData, this.userToken).then(async (data) => {
                 console.log(data);
-            })
-            this.onCloseDialog();
-            this.getTherapistArticles();
+            });
+            debugger;
+            this.onCloseAppointmentDialog();
+            this.getStudentCalendar();
         },
 
         // PROFILE PAGE

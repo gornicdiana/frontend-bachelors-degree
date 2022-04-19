@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards">
+    <Dialog id="therapistProfileDialogID" class="sapUiSmallMarginBeginEnd" title="" contentWidth="600px" horizontalScrolling="false">
+        <buttons>
+            <Button text="{i18n>makeAppointment}" press="onPressMakeAppointment" type="Emphasized"/>
+            <Button text="{i18n>Cancel}" press="onCloseProfileDialog" />
+        </buttons>
+        <VBox class="sapUiSmallMarginBegin">
+            <VBox>
+                <FormattedText htmlText="{therapistProfileModel>/firstname} {therapistProfileModel>/lastname}" class="sapUiSmallMarginBottom"/>
+                <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                <VBox>
+                    <HBox alignItems="Center">
+                        <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
+                        <FormattedText htmlText="{therapistProfileModel>/phone}"/>
+                    </HBox>
+                    <HBox alignItems="Center">
+                        <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
+                        <FormattedText htmlText="{therapistProfileModel>/email}"/>
+                    </HBox>
+                </VBox>
+                <HBox alignItems="Center">
+                    <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
+                    <FormattedText htmlText="{therapistProfileModel>/information}"/>
+                </HBox>
+            </VBox>
+            <VBox items="{articleModel>/}">
+                <f:Card id="articleCardID" visible="{articleModel>visible}" class="sapUiMediumMargin" width="90%">
+                    <f:header>
+                        <card:Header id="articleNameHeaderID" title="{articleModel>title}"/>
+                    </f:header>
+                    <f:content>
+                        <VBox id="cardContentVBoxID" class="sapUiSmallMargin">
+                            <VBox id="articleContentVBoxID">
+                                <FormattedText id="authorID" htmlText="{articleModel>author}"/>
+                                <FormattedText id="contentID" htmlText="{articleModel>body}"/>
+                            </VBox>
+                        </VBox>
+                    </f:content>
+                </f:Card>
+            </VBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>

@@ -144,7 +144,6 @@ sap.ui.define([
         },
 
         onHeaderDaySelect: function () {},
-        onCreateAppointment: function () {},
 
         handleStartDateChange: function (oEvent) {
             var oStartDate = oEvent.getParameter("date");

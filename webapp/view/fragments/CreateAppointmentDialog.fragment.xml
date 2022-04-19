@@ -7,21 +7,21 @@
             <Button text="OK" type="Emphasized" press="onSaveNewAppointment"/>
         </beginButton>
         <endButton>
-            <Button text="Cancel" press="onCancelNewAppointment"/>
+            <Button text="Cancel" press="onCloseAppointmentDialog"/>
         </endButton>
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false">
                 <Label text="Title"/>
-                <Input id="appTitle" value="{appointmentModel>/name}"/>
-                <ComboBox id="therapistsComboBoxID" items="{therapistModel>/}" change="onGetSelectedItem">
+                <Input id="appTitle" value="{newAppointmentModel>/name}"/>
+                <ComboBox id="therapistsComboBoxID" items="{therapistModel>/}" value="{newAppointmentModel>/therapist}" change="onGetSelectedItem">
                     <core:Item text="{therapistModel>lastname} {therapistModel>firstname}"/>
                 </ComboBox>
                 <Label text="From"/>
-                <DateTimePicker required="true" displayFormat="short" change="handleDateTimePickerChange" value="{appointmentModel>/startDate}"/>
+                <DateTimePicker required="true" displayFormat="short" maxDate="{19:00:00}" change="handleDateTimePickerChange" value="{newAppointmentModel>/startDate}"/>
                 <Label text="To"/>
-                <DateTimePicker required="true" displayFormat="short" change="handleDateTimePickerChange" value="{appointmentModel>/endDate}"/>
+                <DateTimePicker required="true" displayFormat="short" maxDate="{20:00:00}" change="handleDateTimePickerChange" value="{newAppointmentModel>/endDate}"/>
                 <Label text="Category"/>
-                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem">
+                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" value="{newAppointmentModel>/category}" change="onGetSelectedItem">
                     <core:Item key="{category>key}" text="{category>name}"/>
                 </ComboBox>
             </f:SimpleForm>
