@@ -13,7 +13,7 @@
             </VBox>
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
                 <Label text="Labels"/>
-                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem">
+                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem" placeholder="Choose a categoty...">
                     <core:Item key="{category>key}" text="{category>name}"/>
                 </ComboBox>
             </VBox>

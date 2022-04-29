@@ -9,7 +9,7 @@
 
     <SplitApp id="homeSplitAppID">
         <detailPages>
-            <Page id="myArticlesSplitID" title="My Articles">
+            <Page id="myArticlesSplitID" title="My Articles" class="allBackground">
                 <headerContent>
                     <Button text="Add Article" type="Emphasized" press="onPressAddArticle"/>
                 </headerContent>

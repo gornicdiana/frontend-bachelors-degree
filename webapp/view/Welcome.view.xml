@@ -1,13 +1,27 @@
-<mvc:View controllerName="licenta.controller.Welcome" 
-    xmlns:mvc="sap.ui.core.mvc" 
-    displayBlock="true" 
-    xmlns="sap.m">
+<mvc:View controllerName="licenta.controller.Welcome"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards">
 
-    <Page id="welcomePage" title="Welcome!">
-        <headerContent>
-            <Button id="loginButton" text="Login" press="goToLogin" type="Emphasized"/>
-            <Button id="registerButton" text="Register" press="goToRegister" type="Transparent"/>
-        </headerContent>
+    <Page title="Welcome!" class="welcomePage">
+        <content>
+            <VBox alignItems="Center">
+                <f:Card class="sapUiMediumMargin cardClass" width="500px" height="500px">
+                    <f:content>
+                        <VBox class="sapUiMediumMargin" alignItems="Center" width="100%">
+                            <Label text="Learn more" class="cardTitle"/>
+                            <Label text="Login or create an account" class="cardSubtitle"/>
+                            <HBox class="sapUiMediumMargin" width="100%" height="100%" alignItems="End" justifyContent="Center">
+                                <Button id="loginButton" class="buttonClass" text="Login" press="goToLogin" type="Emphasized"/>
+                                <Button id="registerButton" text="Register" press="goToRegister" type="Transparent"/>
+                            </HBox>
+                        </VBox>
+                    </f:content>
+                </f:Card>
+
+            </VBox>
+        </content>
     </Page>
 
 </mvc:View>

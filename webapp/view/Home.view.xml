@@ -7,7 +7,7 @@
 
     <SplitApp id="homeSplitAppID">
         <detailPages>
-            <Page id="articlesSplitID" title="Articles">
+            <Page id="articlesSplitID" title="Articles" class="articlePageClass">
                 <HBox width="100%" class="sapUiSmallMargin">
                     <Button text="All" press="onPressAll"/>
                     <OverflowToolbar id="toolbar" content="{category>/Categories}" width="100%">
@@ -19,13 +19,6 @@
             <Page id="therapistsSplitID" title=" All Therapists">
                 <c:Fragment id="therapistFragmentID" fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
             </Page>
-            <!-- <Page id="myTherapistSplitID" title=" My Therapist"></Page> -->
-            <!-- <Page id="profileSplitID" title="Profile"></Page>
-            <Page id="calendarSplitID" title="Calendar">
-                <content>
-                    <c:Fragment id="calendarStudentFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" />
-                </content>
-            </Page> -->
             <Page id="accountSplitID" title="Account">
                 <headerContent>
                     <Button text="Logout" type="Emphasized" press="onPressLogout"/>
@@ -38,19 +31,10 @@
                     <items>
                         <StandardListItem id="articlesListID" title="Articles" type="Active" custom:to="articlesSplitID"/>
                         <StandardListItem id="therapistsListID" title=" All Therapists" type="Active" custom:to="therapistsSplitID"/>
-                        <!-- <StandardListItem id="myTherapistListID" title=" My Therapist" type="Navigation" press=".onPressGoToMyTherapist"/> -->
                         <StandardListItem id="accountListID" title="Account" type="Active" custom:to="accountSplitID"/>
                     </items>
                 </List>
             </Page>
-            <!-- <Page id="masterMyTherapist" title="Home" backgroundDesign="List" showNavButton="true" navButtonPress=".onPressMasterBack">
-                <List id="listMyTherapistID" itemPress=".onListItemPress">
-                    <items>
-                        <StandardListItem id="profileListID" title="Profile" type="Active" custom:to="profileSplitID"/>
-                        <StandardListItem id="calendarListID" title="Calendar" type="Active" custom:to="calendarSplitID"/>
-                    </items>
-                </List>
-            </Page> -->
         </masterPages>
     </SplitApp>
 </mvc:View>

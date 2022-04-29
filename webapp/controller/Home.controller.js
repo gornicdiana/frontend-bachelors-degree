@@ -35,9 +35,9 @@ sap.ui.define([
         getAllArticles: async function () {
             const articles = await this.get(URLs.getArticleUrl() + "/allArticles");
 
-            articles.forEach((article) => {
-                article.author = '<h5 style="color: #0854A0; font-weight: bold;">' + article.author + '</h5>'
-            })
+            // articles.forEach((article) => {
+            //     article.author = '<h5 style="color: #0854A0; font-weight: bold;">' + article.author + '</h5>'
+            // })
             this.getView().getModel("articleModel").setData(articles);
         },
 
@@ -45,6 +45,7 @@ sap.ui.define([
             const appointments = await this.get(URLs.getAppointmentUrl() + '/studentCalendar', this.userToken);
 
             appointments.forEach((appointment) => {
+                appointment.create = true;
                 appointment.startDate = new Date(appointment.startDate);
                 appointment.endDate = new Date(appointment.endDate);
             })
@@ -122,9 +123,19 @@ sap.ui.define([
             })
         },
 
+        _findTherapist: function (oEvent) {
+            let selectedTherapistPath = oEvent.getSource().getBindingContext("therapistModel").getPath();
+            selectedTherapistPath = selectedTherapistPath.slice(-1);
+            let selectedTherapist = this.getView().getModel("therapistModel").getData()[selectedTherapistPath];
+            debugger;
+            this.getView().getModel("therapistProfileModel").setData(selectedTherapist);
+        },
+
         // TO DO: sa nu poti alege alt therapist aici
         onPressContactTherapistFromArticle: function (oEvent) {
-            this._findAuthorOfArticle(oEvent);
+            if (oEvent.getSource().getProperty("text") == "View Profile") {
+                this._findTherapist(oEvent);
+            }
             if (!this.pProfilePopover) {
                 Fragment.load({name: "licenta.view.fragments.TherapistProfileDialog", controller: this}).then((oProfilePopover) => {
                     this.pProfilePopover = oProfilePopover;
@@ -159,20 +170,16 @@ sap.ui.define([
         },
 
         onSaveNewAppointment: async function (oEvent) {
-            debugger;
             const newAppointmentData = this.getView().getModel("newAppointmentModel").getData();
             let allTherapists = this.getView().getModel("therapistModel").getData();
-            debugger;
             allTherapists.forEach((therapist) => {
                 if ((therapist.lastname + " " + therapist.firstname) === newAppointmentData.therapist) {
-                    debugger;
                     newAppointmentData.therapist = therapist.email;
                 }
             })
             await this.post(URLs.getAppointmentUrl() + "/add", newAppointmentData, this.userToken).then(async (data) => {
                 console.log(data);
             });
-            debugger;
             this.onCloseAppointmentDialog();
             this.getStudentCalendar();
         },

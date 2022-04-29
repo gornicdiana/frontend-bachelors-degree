@@ -1,6 +1,11 @@
 sap.ui.define([
-    "licenta/controller/BaseController", "sap/ui/model/json/JSONModel", "licenta/utils/URLs", "sap/ui/core/Fragment",
-], function (BaseController, JSONModel, URLs, Fragment) {
+    "licenta/controller/BaseController",
+    "sap/ui/model/json/JSONModel",
+    "licenta/utils/URLs",
+    "sap/ui/core/Fragment",
+    "sap/m/MessageToast",
+    "sap/m/MessageBox"
+], function (BaseController, JSONModel, URLs, Fragment, MessageToast, MessageBox) {
     "use strict";
 
     return BaseController.extend("licenta.controller.HomeTherapist", {
@@ -43,6 +48,7 @@ sap.ui.define([
             appointments.forEach((appointment) => {
                 appointment.startDate = new Date(appointment.startDate);
                 appointment.endDate = new Date(appointment.endDate);
+                appointment.create = false;
             })
             this.getView().getModel("appointmentModel").setData(appointments);
         },
@@ -102,11 +108,21 @@ sap.ui.define([
 
         onDeleteArticle: async function (oEvent) {
             let title = oEvent.getSource().getParent().getParent().getParent().getAggregation("header").getProperty("title");
-            await this.delete(URLs.getArticleUrl() + "/delete", {
-                title
-            }, this.userToken).then(async (data) => {})
-            this.getTherapistArticles();
-
+            let msg = "Are you sure you want to delete this article?";
+            MessageBox.warning(msg, {
+                actions: [
+                    MessageBox.Action.OK, MessageBox.Action.CANCEL
+                ],
+                emphasizedAction: MessageBox.Action.OK,
+                onClose: async (sAction) => {
+                    if (sAction === MessageBox.Action.OK) {
+                        await this.delete(URLs.getArticleUrl() + "/delete", {
+                            title
+                        }, this.userToken).then(async (data) => {})
+                        this.getTherapistArticles();
+                    }
+                }
+            });
         },
 
         // CALENDAR PAGE
@@ -156,7 +172,9 @@ sap.ui.define([
             await this.put(URLs.getTherapistUrl() + "/update", {
                 infoData
             }, token).then(async (data) => {})
+            MessageToast.show("Profile updated!");
         },
+
         onPressLogout: function () {
             this.getRouter().navTo("Welcome");
         }

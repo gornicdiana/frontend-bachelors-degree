@@ -12,8 +12,7 @@
                 <VBox id="cardTherapistContentVBoxID" class="sapUiSmallMargin">
                     <GenericTag text="{therapistArticleModel>category}" design="StatusIconHidden" status="Information" press="onPressCategoryLabel" class="sapUiSmallMarginBottom"/>
                     <VBox >
-                        <FormattedText htmlText="{therapistModel>/firstname}"/>
-                        <FormattedText htmlText="{therapistModel>/lastname}"/>
+                        <FormattedText htmlText="{therapistArticleModel>author}"/>
                         <FormattedText htmlText="{therapistArticleModel>body}"/>
                     </VBox>
                     <VBox alignItems="End">
