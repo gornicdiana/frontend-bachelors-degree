@@ -4,14 +4,38 @@
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
 
-    <Page title="Welcome!" class="welcomePage">
+    <Page title="Welcome!" class="welcomePage" titleAlignment="Center">
         <content>
             <VBox alignItems="Center">
-                <f:Card class="sapUiMediumMargin cardClass" width="500px" height="500px">
+                <f:Card class="sapUiMediumMargin cardClass" width="600px" height="700px">
                     <f:content>
                         <VBox class="sapUiMediumMargin" alignItems="Center" width="100%">
                             <Label text="Learn more" class="cardTitle"/>
                             <Label text="Login or create an account" class="cardSubtitle"/>
+                            <SlideTile class="sapUiTinyMarginBegin sapUiMediumMarginBottom sapUiMediumMarginTop">
+                                <GenericTile backgroundImage="utils/img/therapy.jpg" frameType="TwoByOne" size="Responsive">
+                                    <TileContent footer="Meet out experts">
+                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                    </TileContent>
+                                </GenericTile>
+                                <GenericTile backgroundImage="utils/img/comunity.jpg" frameType="TwoByOne" size="Responsive">
+                                    <TileContent footer="Be part of a comunity">
+                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                    </TileContent>
+                                </GenericTile>
+                            </SlideTile>
+                            <SlideTile class="sapUiTinyMarginBegin sapUiMediumMarginTop">
+                                <GenericTile backgroundImage="utils/img/learn.jpg" frameType="TwoByOne" size="Responsive">
+                                    <TileContent footer="Learn and grow">
+                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                    </TileContent>
+                                </GenericTile>
+                                <GenericTile backgroundImage="utils/img/comunity.jpg" frameType="TwoByOne" size="Responsive">
+                                    <TileContent footer="Be part of a comunity">
+                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                    </TileContent>
+                                </GenericTile>
+                            </SlideTile>
                             <HBox class="sapUiMediumMargin" width="100%" height="100%" alignItems="End" justifyContent="Center">
                                 <Button id="loginButton" class="buttonClass" text="Login" press="goToLogin" type="Emphasized"/>
                                 <Button id="registerButton" text="Register" press="goToRegister" type="Transparent"/>
@@ -19,7 +43,6 @@
                         </VBox>
                     </f:content>
                 </f:Card>
-
             </VBox>
         </content>
     </Page>
