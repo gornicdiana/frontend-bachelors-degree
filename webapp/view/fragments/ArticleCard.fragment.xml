@@ -4,9 +4,9 @@
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
     <VBox items="{articleModel>/}">
-        <f:Card id="articleCardID" visible="{articleModel>visible}" class="sapUiMediumMargin" width="90%">
+        <f:Card id="articleCardID" visible="{articleModel>visible}" class="sapUiMediumMargin " width="90%">
             <f:header>
-                <card:Header id="articleNameHeaderID" title="{articleModel>title}"/>
+                <card:Header id="articleNameHeaderID" title="{articleModel>title}" />
             </f:header>
             <f:content>
                 <VBox id="cardContentVBoxID" class="sapUiSmallMargin">

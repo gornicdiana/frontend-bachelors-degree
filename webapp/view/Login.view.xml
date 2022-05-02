@@ -16,9 +16,9 @@
 							<Label text="Login"/>
 							<VBox id="inputsVBox" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" width="100%">
 								<Label id="emailLabelID" class="sapUiSmallMarginTop" text="Email"/>
-								<Input id="emailInputID" class="sapUiTinyMarginTop" type="Email" placeholder="{i18n>emailInput}" value="{loginModel>/email}"/>
+								<Input id="emailInputID" class="sapUiTinyMarginTop" type="Email" placeholder="{i18n>emailInput}" value="{loginModel>/email}" width="250px"/>
 								<Label id="passwordLabelID" class="sapUiSmallMarginTop" text="Password"/>
-								<Input id="passwordInputID" class="sapUiTinyMarginTop" type="Password" placeholder="{i18n>passwordInput}" value="{loginModel>/password}"/>
+								<Input id="passwordInputID" class="sapUiTinyMarginTop" type="Password" placeholder="{i18n>passwordInput}" value="{loginModel>/password}" width="250px"/>
 							</VBox>
 							<VBox id="buttonsHBox" alignItems="Center" class="sapUiSmallMargin" width="100%" height="100%">
 								<Label id="registerLabelID" text="{i18n>registerText}"/>

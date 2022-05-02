@@ -27,10 +27,10 @@
                                 </HBox>
                                 <VBox justifyContent="Center" alignItems="Center">
                                     <Label labelFor="emailInput" text="Email"/>
-                                    <Input id="emailInput" required="true" placeholder="Email..." valueStateText="{i18n>registerEmailStateValueText}" value="{registerModel>/email}"/>
+                                    <Input id="emailInput" required="true" placeholder="Email..." valueStateText="{i18n>registerEmailStateValueText}" value="{registerModel>/email}" width="250px"/>
                                     <Label class="sapUiSmallMarginTop" labelFor="passwordInput" text="Password"/>
-                                    <Input id="passwordInput" type="Password" required="true" placeholder="Password..." valueStateText="{i18n>registerPasswordStateValueText}" value="{registerModel>/password}"/>
-                                    <Input id="confirmPasswordInput" class="sapUiTinyMarginTop" type="Password" required="true" placeholder="Confirm password..." valueStateText="{i18n>registerConfirmPasswordStateValueText}" value="{registerModel>/confirmPassword}"/>
+                                    <Input id="passwordInput" type="Password" required="true" placeholder="Password..." valueStateText="{i18n>registerPasswordStateValueText}" value="{registerModel>/password}" width="250px"/>
+                                    <Input id="confirmPasswordInput" class="sapUiTinyMarginTop" type="Password" required="true" placeholder="Confirm password..." valueStateText="{i18n>registerConfirmPasswordStateValueText}" value="{registerModel>/confirmPassword}" width="250px"/>
                                 </VBox>
                             </VBox>
                             <Label text="Already have an account?"/>

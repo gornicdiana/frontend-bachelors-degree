@@ -3,36 +3,38 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns:grid="sap.ui.layout.cssgrid">
-    <f:GridList items="{therapistModel>/}">
+    <f:GridList id="therapistCardID" items="{therapistModel>/}">
         <f:customLayout>
             <grid:ResponsiveColumnLayout />
         </f:customLayout>
-
         <f:GridListItem class="sapUiSmallMargin">
             <f:layoutData>
                 <grid:ResponsiveColumnItemLayoutData columns="4" rows="3" />
             </f:layoutData>
-            <VBox class="sapUiSmallMarginBegin">
-                <VBox class="sapUiMediumMarginTop">
-                    <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
-                </VBox>
-                <VBox>
-                    <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+            <VBox class="sapUiSmallMarginBegin sapUiMediumMarginTop">
+                <HBox>
                     <VBox>
+                        <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
+                        <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                        <VBox>
+                            <HBox alignItems="Center">
+                                <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
+                                <FormattedText htmlText="{therapistModel>phone}"/>
+                            </HBox>
+                            <HBox alignItems="Center">
+                                <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
+                                <FormattedText htmlText="{therapistModel>email}"/>
+                            </HBox>
+                        </VBox>
                         <HBox alignItems="Center">
-                            <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
-                            <FormattedText htmlText="{therapistModel>phone}"/>
-                        </HBox>
-                        <HBox alignItems="Center">
-                            <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
-                            <FormattedText htmlText="{therapistModel>email}"/>
+                            <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
+                            <FormattedText htmlText="{therapistModel>/information}"/>
                         </HBox>
                     </VBox>
-                    <HBox alignItems="Center">
-                        <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
-                        <FormattedText htmlText="{therapistModel>/information}"/>
-                    </HBox>
-                </VBox>
+                    <VBox class="sapUiSmallMargin">
+                        <Image src="utils/img/doctor1.jpg" height="100px" width="150px"/>
+                    </VBox>
+                </HBox>
                 <HBox justifyContent="Center" alignItems="Center">
                     <Button text="Make an appointment" type="Emphasized" class="sapUiSmallMargin" press="onPressMakeAppointment"/>
                     <Button text="View Profile" class="sapUiSmallMargin" press="onPressContactTherapistFromArticle"/>
@@ -40,5 +42,4 @@
             </VBox>
         </f:GridListItem>
     </f:GridList>
-
 </core:FragmentDefinition>

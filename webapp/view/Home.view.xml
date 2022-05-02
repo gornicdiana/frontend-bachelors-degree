@@ -5,33 +5,33 @@
     xmlns:unified="sap.ui.unified"
     xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 
-    <SplitApp id="homeSplitAppID">
+    <SplitApp id="homeSplitAppID" class="splitClass">
         <detailPages>
-            <Page id="articlesSplitID" title="Articles" class="articlePageClass">
+            <Page id="articlesSplitID" title="Articles" class="articlePageClass studentBackgroundClass">
                 <HBox width="100%" class="sapUiSmallMargin">
                     <Button text="All" press="onPressAll"/>
-                    <OverflowToolbar id="toolbar" content="{category>/Categories}" width="100%">
+                    <Toolbar id="toolbar" content="{category>/Categories}" width="100%">
                         <Button text="{category>name}" press="onPressCategoryLabel"/>
-                    </OverflowToolbar>
+                    </Toolbar>
                 </HBox>
                 <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.ArticleCard" type="XML" />
             </Page>
-            <Page id="therapistsSplitID" title=" All Therapists">
+            <Page id="therapistsSplitID" title=" All Therapists" class="studentBackgroundClass">
                 <c:Fragment id="therapistFragmentID" fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
             </Page>
-            <Page id="accountSplitID" title="Account">
+            <Page id="accountSplitID" title="Account" class="studentBackgroundClass">
                 <headerContent>
                     <Button text="Logout" type="Emphasized" press="onPressLogout"/>
                 </headerContent>
             </Page>
         </detailPages>
         <masterPages>
-            <Page id="masterHome" backgroundDesign="List">
+            <Page id="masterHome" backgroundDesign="List" class="splitMenu">
                 <List id="listHomeID" itemPress=".onListItemPress">
                     <items>
-                        <StandardListItem id="articlesListID" title="Articles" type="Active" custom:to="articlesSplitID"/>
-                        <StandardListItem id="therapistsListID" title=" All Therapists" type="Active" custom:to="therapistsSplitID"/>
-                        <StandardListItem id="accountListID" title="Account" type="Active" custom:to="accountSplitID"/>
+                        <StandardListItem id="articlesListID" title="Articles" type="Active" custom:to="articlesSplitID" class="splitButton"/>
+                        <StandardListItem id="therapistsListID" title=" All Therapists" type="Active" custom:to="therapistsSplitID" class="splitButton"/>
+                        <StandardListItem id="accountListID" title="Account" type="Active" custom:to="accountSplitID" class="splitButton"/>
                     </items>
                 </List>
             </Page>
