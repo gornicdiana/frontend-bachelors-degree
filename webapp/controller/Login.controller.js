@@ -10,6 +10,10 @@ sap.ui.define([
             this.getView().setModel(loginModel, "loginModel");
         },
 
+        onGoBackToWelcome: function () {
+            this.getRouter().navTo("Welcome");
+        },
+
         pressToLogin: function () {
             const data = this.getView().getModel("loginModel").getData();
             const email = data.email;

@@ -4,7 +4,7 @@
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
 
-    <Page title="Welcome!" class="welcomePage" titleAlignment="Center">
+    <Page title="Welcome!" class="backgroundClass" titleAlignment="Center">
         <content>
             <VBox alignItems="Center">
                 <f:Card class="sapUiMediumMargin cardClass" width="600px" height="700px">

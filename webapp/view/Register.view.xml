@@ -2,63 +2,43 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards">
 
-    <Page id="register" title="Register" class="sapUiResponsiveContentPadding">
+    <Page id="register" title="Register" titleAlignment="Center" class="sapUiResponsiveContentPadding backgroundClass" showNavButton="true" navButtonPress="onGoBackToWelcome">
         <content>
             <VBox class="sapUiResponsiveMargin" alignItems = "Center">
-                <core:Icon src="sap-icon://customer" size="2.5rem"/>
-                <Text text="Register" />
-                <VBox width = "30%">
-                    <HBox justifyContent = "SpaceBetween">
-                        <VBox class ="sapUiTinyMarginEnd">
-                            <Label 
-                                class = "sapUiSmallMarginTop" labelFor="registrationNumberInput"
-                                text = "Matricol Number"/>
-                            <Input id="registrationNumberInput"
-                                required = "true" placeholder="Matricol Number..." valueStateText="{i18n>registerFirstNameStateValueText}" value="{registerModel>/registrationNumber}"
-                                change = "" />
+                <f:Card class="sapUiMediumMargin cardClass" width="500px" height="600px">
+                    <f:content>
+                        <VBox alignItems="Center" class="sapUiLargeMargin" width="100%" height="100%">
+                            <core:Icon src="sap-icon://customer" size="2.5rem"/>
+                            <Label text="Register"/>
+                            <VBox class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" width="100%">
+                                <HBox justifyContent="SpaceBetween" class="sapUiSmallMargin">
+                                    <VBox class="sapUiSmallMargin">
+                                        <Label text="Registration Number" labelFor="registrationNumberInput"/>
+                                        <Input id="registrationNumberInput" required="true" placeholder="Reg. Number..." valueStateText="{i18n>registerFirstNameStateValueText}" value="{registerModel>/registrationNumber}"/>
+                                    </VBox>
+                                    <VBox class="sapUiSmallMargin">
+                                        <Label text="Username" labelFor="usernameInput"/>
+                                        <Input id="usernameInput" required="true" placeholder="Username..." valueStateText="{i18n>registerLastNameStateValueText}" value="{registerModel>/username}"/>
+                                    </VBox>
+                                </HBox>
+                                <VBox justifyContent="Center" alignItems="Center">
+                                    <Label labelFor="emailInput" text="Email"/>
+                                    <Input id="emailInput" required="true" placeholder="Email..." valueStateText="{i18n>registerEmailStateValueText}" value="{registerModel>/email}"/>
+                                    <Label class="sapUiSmallMarginTop" labelFor="passwordInput" text="Password"/>
+                                    <Input id="passwordInput" type="Password" required="true" placeholder="Password..." valueStateText="{i18n>registerPasswordStateValueText}" value="{registerModel>/password}"/>
+                                    <Input id="confirmPasswordInput" class="sapUiTinyMarginTop" type="Password" required="true" placeholder="Confirm password..." valueStateText="{i18n>registerConfirmPasswordStateValueText}" value="{registerModel>/confirmPassword}"/>
+                                </VBox>
+                            </VBox>
+                            <Label text="Already have an account?"/>
+                            <Button type="Transparent" text="Login" press="goToLogin"/>
+                            <Button type="Emphasized" text="Register" press="onRegisterUser" class="sapUiTinyMarginTop"/>
                         </VBox>
-                        <VBox>
-                            <Label
-                                class = "sapUiSmallMarginTop" labelFor="usernameInput"
-                                text = "Username"/>
-                            <Input id="usernameInput"                   
-                                required = "true" placeholder="Username..." valueStateText="{i18n>registerLastNameStateValueText}"
-                                value ="{registerModel>/username}"
-                                change = "" />
-                        </VBox>
-                    </HBox>
-                    <Label
-                        class = "sapUiSmallMarginTop" labelFor="emailInput"
-                        text = "Email"/>
-                    <Input id="emailInput"
-                        required = "true" placeholder="Email..." valueStateText="{i18n>registerEmailStateValueText}"
-                        value = "{registerModel>/email}"
-                        change = "" />
-                    <Label
-                        class = "sapUiSmallMarginTop" labelFor="passwordInput"
-                        text = "Password"/>
-
-                    <Input id="passwordInput" type="Password"
-                        required = "true" placeholder="Password..." valueStateText="{i18n>registerPasswordStateValueText}"
-                        value = "{registerModel>/password}"
-                        change = "" />
-
-                    <Input id="confirmPasswordInput" type="Password"
-                        required = "true" placeholder="Confirm your password..." valueStateText="{i18n>registerConfirmPasswordStateValueText}"
-                        value = "{registerModel>/confirmPassword}"
-                        liveChange = "" />
-                </VBox>
-                <Link id="registerLinkID"
-                    class = "smallLabel" text="Already have an account?"
-                    press = "goToLogin"/>
-                <Button
-                    type = "Emphasized"
-                    text = "Register"
-                    class = "sapUiSmallMarginTop"
-                    press = "onRegisterUser">
-                </Button>
+                    </f:content>
+                </f:Card>
             </VBox>
         </content>
     </Page>

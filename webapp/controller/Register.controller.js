@@ -9,6 +9,10 @@ sap.ui.define([
             this.getView().setModel(registerModel, "registerModel");
         },
 
+        onGoBackToWelcome: function () {
+            this.getRouter().navTo("Welcome");
+        },
+
         goToLogin: function () {
             this.getRouter().navTo("Login");
         },

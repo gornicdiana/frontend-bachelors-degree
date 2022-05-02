@@ -2,22 +2,32 @@
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
 	xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
-	xmlns:core="sap.ui.core">
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards">
 
-	<Page id="loginPage" title="login" class="sapUiResponsiveContentPadding">
+	<Page id="loginPage" class="sapUiResponsiveContentPadding backgroundClass" title="Login" titleAlignment="Center" showNavButton="true" navButtonPress="onGoBackToWelcome">
 		<content>
-			<VBox id="formVBox" alignItems="Center" class="sapUiLargeMarginTop">
-				<VBox id="inputsVBox" width="55%">
-					<Label id="emailLabelID" text="Email" labelFor="emailInput" />
-					<Input id="emailInputID" type="Email" placeholder="emailInput" value="{loginModel>/email}"/>
-
-					<Label id="passwordLabelID" text="Password" labelFor="passwordInput" />
-					<Input id="passwordInputID" type="Password" placeholder="passwordInput" value="{loginModel>/password}"/>
-				</VBox>
-				<HBox id="buttonsHBox" alignItems="Start" class="sapUiDemoFlexBoxSizeAdjustments sapUiSmallMargin" width="55%">
-					<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin"/>
-					<Button id="registerButton" type="Transparent" text="Register" press="goToRegister" class="sapUILargeMarginLeft"/>
-				</HBox>
+			<VBox alignItems="Center" width="100%" height="100%">
+				<f:Card class="sapUiMediumMargin cardClass" width="500px" height="600px">
+					<f:content>
+						<VBox id="formVBox" alignItems="Center" justifyContent="Center" class="sapUiLargeMarginTop" width="100%" height="100%">
+							<core:Icon src="sap-icon://customer" size="2.5rem"/>
+							<Label text="Login"/>
+							<VBox id="inputsVBox" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" width="100%">
+								<Label id="emailLabelID" class="sapUiSmallMarginTop" text="Email"/>
+								<Input id="emailInputID" class="sapUiTinyMarginTop" type="Email" placeholder="{i18n>emailInput}" value="{loginModel>/email}"/>
+								<Label id="passwordLabelID" class="sapUiSmallMarginTop" text="Password"/>
+								<Input id="passwordInputID" class="sapUiTinyMarginTop" type="Password" placeholder="{i18n>passwordInput}" value="{loginModel>/password}"/>
+							</VBox>
+							<VBox id="buttonsHBox" alignItems="Center" class="sapUiSmallMargin" width="100%" height="100%">
+								<Label id="registerLabelID" text="{i18n>registerText}"/>
+								<Button id="registerButton" type="Transparent" text="Register" press="goToRegister"/>
+								<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin"/>
+							</VBox>
+						</VBox>
+					</f:content>
+				</f:Card>
 			</VBox>
 		</content>
 	</Page>
