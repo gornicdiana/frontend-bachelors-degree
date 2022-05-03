@@ -7,7 +7,7 @@
 
     <SplitApp id="homeSplitAppID" class="splitClass">
         <detailPages>
-            <Page id="articlesSplitID" title="Articles" class="articlePageClass studentBackgroundClass">
+            <Page id="articlesSplitID" title="Articles" class="articlePageClass homeBackgroundClass">
                 <HBox width="100%" class="sapUiSmallMargin">
                     <Button text="All" press="onPressAll"/>
                     <Toolbar id="toolbar" content="{category>/Categories}" width="100%">
@@ -16,10 +16,10 @@
                 </HBox>
                 <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.ArticleCard" type="XML" />
             </Page>
-            <Page id="therapistsSplitID" title=" All Therapists" class="studentBackgroundClass">
+            <Page id="therapistsSplitID" title=" All Therapists" class="homeBackgroundClass">
                 <c:Fragment id="therapistFragmentID" fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
             </Page>
-            <Page id="accountSplitID" title="Account" class="studentBackgroundClass">
+            <Page id="accountSplitID" title="Account" class="homeBackgroundClass">
                 <headerContent>
                     <Button text="Logout" type="Emphasized" press="onPressLogout"/>
                 </headerContent>

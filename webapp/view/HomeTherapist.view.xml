@@ -7,9 +7,9 @@
     xmlns:card="sap.f.cards"
     xmlns:f="sap.f">
 
-    <SplitApp id="homeSplitAppID">
+    <SplitApp id="homeSplitAppID" class="splitClass">
         <detailPages>
-            <Page id="myArticlesSplitID" title="My Articles" class="allBackground">
+            <Page id="myArticlesSplitID" title="My Articles" class="homeBackgroundClass">
                 <headerContent>
                     <Button text="Add Article" type="Emphasized" press="onPressAddArticle"/>
                 </headerContent>
@@ -17,12 +17,12 @@
                     <c:Fragment id="articleTherapistFragmentID" fragmentName="licenta.view.fragments.ArticleTherapistCard" type="XML" />
                 </content>
             </Page>
-            <Page id="myCalendarSplitID" title="My Calendar">
+            <Page id="myCalendarSplitID" title="My Calendar" class="homeBackgroundClass">
                 <content>
                     <c:Fragment id="calendarTherapistFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" />
                 </content>
             </Page>
-            <Page id="myProfileSplitID" title="My Profile">
+            <Page id="myProfileSplitID" title="My Profile" class="homeBackgroundClass">
                 <!-- <headerContent>
                     <Button text="Logout" type="Emphasized" press="onPressLogout"/>
                 </headerContent> -->
@@ -62,12 +62,12 @@
             </Page>
         </detailPages>
         <masterPages>
-            <Page backgroundDesign="List">
+            <Page backgroundDesign="List" class="splitMenu">
                 <List itemPress=".onListItemPress">
                     <items>
-                        <StandardListItem id="myArticlesListID" title="My Articles" type="Active" custom:to="myArticlesSplitID"/>
-                        <StandardListItem id="myCalendarListID" title="My Calendar" type="Active" custom:to="myCalendarSplitID"/>
-                        <StandardListItem id="myProfileListID" title=" My Profile" type="Active" custom:to="myProfileSplitID"/>
+                        <StandardListItem id="myArticlesListID" title="My Articles" type="Active" custom:to="myArticlesSplitID" class="splitButton"/>
+                        <StandardListItem id="myCalendarListID" title="My Calendar" type="Active" custom:to="myCalendarSplitID" class="splitButton"/>
+                        <StandardListItem id="myProfileListID" title=" My Profile" type="Active" custom:to="myProfileSplitID" class="splitButton"/>
                     </items>
                 </List>
             </Page>

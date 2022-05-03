@@ -1,10 +1,10 @@
 .backgroundClass {
-  background-image: url("https://images.unsplash.com/photo-1530176928500-2372a88e00b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.studentBackgroundClass {
+.homeBackgroundClass {
   background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,11 +33,7 @@
 }
 
 .sapMIBar.sapMHeader-CTX {
-  opacity: 1;
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
-  filter: brightness(1.15);
-  background-attachment: fixed;
-  background-size: cover;
+  background-color: hsl(16, 48%, 95%) !important;
 }
 
 .sapFCard .sapFCardHeader {
@@ -52,11 +48,9 @@
 }
 
 .sapMGenericTag .sapMGenericTagWrap {
-  border-color: #819cb7 !important;
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  filter: brightness(1.2);
+  background-color: hsl(16, 48%, 95%) !important;
+  border-color: #435c78f0 !important;
+  filter: brightness(1.04);
 }
 
 .sapMBtnInner {
@@ -76,6 +70,54 @@
 }
 
 span.sapMBtnInner.sapMBtnEmphasized {
+  background-color: #435c78f0 !important;
+  border-color: #435c78f0 !important;
+}
+
+.sapMInputBaseContentWrapper {
+  background-color: hsl(16, 48%, 95%) !important;
+  filter: brightness(1.04);
+}
+
+.sapMPCHead .sapMPCHeadActionsToolbar {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapMSinglePC .sapMPCHeadNavToolbar.sapMTB-Transparent-CTX.sapMTB {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapMSinglePC .sapMPCHeadNavToolbar.sapMTB-Transparent-CTX.sapMTB {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapMSinglePCRowHeader {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapMSinglePCGridContent {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapMSinglePC .sapMSinglePCBlockersRow {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapUiCalRow {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapUiCalItem {
+  background-color: hsl(16, 48%, 95%) !important;
+}
+
+.sapMSegB .sapMSegBBtn .sapMSegBBtnInner {
+  background-color: hsl(16, 48%, 95%) !important;
+  border-color: #435c78f0 !important;
+  filter: brightness(1.04);
+}
+
+.sapMSegBBtn.sapMSegBBtnFocusable.sapMSegBBtnSel .sapMSegBBtnInner {
   background-color: #435c78f0 !important;
   border-color: #435c78f0 !important;
 }
