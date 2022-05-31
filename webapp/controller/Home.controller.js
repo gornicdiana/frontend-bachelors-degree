@@ -65,10 +65,10 @@ sap.ui.define([
         formatTherapistCardsText: async function () {
             let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
             let therapistCardModel = this.getView().getModel("therapistCardModel");
-            therapistCardModel.contactDetailsHeader = '<h5 style="color: #0854A0;">' + oResourceBundle.getText("contactDetailsHeader") + "</h5>",
-            therapistCardModel.phoneHeader = '<p style="color: #0854A0;">' + oResourceBundle.getText("phoneHeader") + '</p>',
-            therapistCardModel.emailHeader = '<p style="color: #0854A0;">' + oResourceBundle.getText("emailHeader") + '</p>',
-            therapistCardModel.informationHeader = '<p style="color: #0854A0;">' + oResourceBundle.getText("informationHeader") + '</p>'
+            therapistCardModel.contactDetailsHeader = '<h5 style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("contactDetailsHeader") + "</h5>",
+            therapistCardModel.phoneHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("phoneHeader") + '</p>',
+            therapistCardModel.emailHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("emailHeader") + '</p>',
+            therapistCardModel.informationHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("informationHeader") + '</p>'
             this.getView().getModel("therapistCardModel").setData(therapistCardModel);
         },
 
@@ -124,16 +124,15 @@ sap.ui.define([
         },
 
         _findTherapist: function (oEvent) {
-            let selectedTherapistPath = oEvent.getSource().getBindingContext("therapistModel").getPath();
+            let selectedTherapistPath = oEvent.getSource().getBindingContext("articleModel").getPath();
             selectedTherapistPath = selectedTherapistPath.slice(-1);
             let selectedTherapist = this.getView().getModel("therapistModel").getData()[selectedTherapistPath];
-            debugger;
             this.getView().getModel("therapistProfileModel").setData(selectedTherapist);
         },
 
         // TO DO: sa nu poti alege alt therapist aici
         onPressContactTherapistFromArticle: function (oEvent) {
-            if (oEvent.getSource().getProperty("text") == "View Profile") {
+            if (oEvent.getSource().getProperty("text") == "Contact Therapist") {
                 this._findTherapist(oEvent);
             }
             if (!this.pProfilePopover) {

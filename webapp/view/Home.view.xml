@@ -9,7 +9,7 @@
         <detailPages>
             <Page id="articlesSplitID" title="Articles" class="articlePageClass homeBackgroundClass">
                 <HBox width="100%" class="sapUiSmallMargin">
-                    <Button text="All" press="onPressAll"/>
+                    <Button class="allButtonClass" text="All" press="onPressAll"/>
                     <Toolbar id="toolbar" content="{category>/Categories}" width="100%">
                         <Button text="{category>name}" press="onPressCategoryLabel"/>
                     </Toolbar>
@@ -23,6 +23,7 @@
                 <headerContent>
                     <Button text="Logout" type="Emphasized" press="onPressLogout"/>
                 </headerContent>
+                <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.AccountCards" type="XML" />
             </Page>
         </detailPages>
         <masterPages>

@@ -60,7 +60,6 @@ sap.ui.define([
             let res;
             const student = await this.post(URLs.getStudentUrl() + "/login", userData);
             this.userToken = student;
-            debugger;
             res = true;
             return res;
         },

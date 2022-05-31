@@ -10,39 +10,30 @@
             <Button text="{i18n>Cancel}" press="onCloseProfileDialog" />
         </buttons>
         <VBox class="sapUiSmallMarginBegin">
-            <VBox>
-                <FormattedText htmlText="{therapistProfileModel>/firstname} {therapistProfileModel>/lastname}" class="sapUiSmallMarginBottom"/>
-                <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+            <HBox width="100%" height="100%">
                 <VBox>
+                    <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
+                    <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                    <VBox>
+                        <HBox alignItems="Center">
+                            <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
+                            <FormattedText htmlText="{therapistModel>phone}"/>
+                        </HBox>
+                        <HBox alignItems="Center">
+                            <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
+                            <FormattedText htmlText="{therapistModel>email}"/>
+                        </HBox>
+                    </VBox>
                     <HBox alignItems="Center">
-                        <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
-                        <FormattedText htmlText="{therapistProfileModel>/phone}"/>
-                    </HBox>
-                    <HBox alignItems="Center">
-                        <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
-                        <FormattedText htmlText="{therapistProfileModel>/email}"/>
+                        <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
+                        <FormattedText htmlText="{therapistModel>/information}"/>
                     </HBox>
                 </VBox>
-                <HBox alignItems="Center">
-                    <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
-                    <FormattedText htmlText="{therapistProfileModel>/information}"/>
-                </HBox>
-            </VBox>
-            <VBox items="{articleModel>/}">
-                <f:Card id="articleCardID" visible="{articleModel>visible}" class="sapUiMediumMargin" width="90%">
-                    <f:header>
-                        <card:Header id="articleNameHeaderID" title="{articleModel>title}"/>
-                    </f:header>
-                    <f:content>
-                        <VBox id="cardContentVBoxID" class="sapUiSmallMargin">
-                            <VBox id="articleContentVBoxID">
-                                <FormattedText id="authorID" htmlText="{articleModel>author}"/>
-                                <FormattedText id="contentID" htmlText="{articleModel>body}"/>
-                            </VBox>
-                        </VBox>
-                    </f:content>
-                </f:Card>
-            </VBox>
+                <VBox class="sapUiSmallMargin">
+                    <Image src="utils/img/doctor1.jpg" height="100px" width="150px"/>
+                </VBox>
+            </HBox>
+
         </VBox>
     </Dialog>
 </core:FragmentDefinition>

@@ -9,17 +9,17 @@
         <VBox width="700px">
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
                 <Label text="Title"/>
-                <TextArea width="100%" value="{articleModel>/title}"/>
+                <TextArea width="100%" placeholder="Add a title..." value="{articleModel>/title}"/>
             </VBox>
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
                 <Label text="Labels"/>
-                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem" placeholder="Choose a categoty...">
-                    <core:Item key="{category>key}" text="{category>name}"/>
+                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem" placeholder="Choose a category...">
+                    <core:Item key="{category>key}" text="{category>name}" class="categoryClass"/>
                 </ComboBox>
             </VBox>
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
                 <Label text="Content"/>
-                <TextArea width="100%" value="{articleModel>/body}"/>
+                <TextArea width="100%" value="{articleModel>/body}" placeholder="Add content..."/>
             </VBox>
         </VBox>
     </Dialog>

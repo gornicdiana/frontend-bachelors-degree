@@ -1,0 +1,68 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:grid="sap.ui.layout.cssgrid">
+
+    <f:GridList id="therapistCardID">
+        <f:customLayout>
+            <grid:ResponsiveColumnLayout />
+        </f:customLayout>
+        <f:GridListItem class="sapUiSmallMargin">
+            <f:layoutData>
+                <grid:ResponsiveColumnItemLayoutData columns="4" rows="4" />
+            </f:layoutData>
+            <VBox>
+                <f:Card>
+                    <f:header>
+                        <card:Header title="Past appointments"/>
+                    </f:header>
+                    <f:content>
+                        <VBox class="sapUiSmallMargin">
+
+                        </VBox>
+                    </f:content>
+                </f:Card>
+            </VBox>
+
+        </f:GridListItem>
+        <f:GridListItem class="sapUiSmallMargin">
+            <f:layoutData>
+                <grid:ResponsiveColumnItemLayoutData columns="4" rows="4" />
+            </f:layoutData>
+            <VBox>
+                <f:Card>
+                    <f:header>
+                        <card:Header title="Past appointments"/>
+                    </f:header>
+                    <f:content>
+                        <VBox class="sapUiSmallMargin">
+
+                        </VBox>
+                    </f:content>
+                </f:Card>
+            </VBox>
+
+        </f:GridListItem>
+        <f:GridListItem class="sapUiSmallMargin">
+            <f:layoutData>
+                <grid:ResponsiveColumnItemLayoutData columns="4" rows="4" />
+            </f:layoutData>
+            <VBox>
+                <f:Card>
+                    <f:header>
+                        <card:Header title="Past appointments"/>
+                    </f:header>
+                    <f:content>
+                        <VBox class="sapUiSmallMargin">
+
+                        </VBox>
+                    </f:content>
+                </f:Card>
+            </VBox>
+
+        </f:GridListItem>
+
+    </f:GridList>
+</core:FragmentDefinition>

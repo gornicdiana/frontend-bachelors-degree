@@ -31,8 +31,8 @@
                         <f:header >
                             <card:Header title="{i18n>myAccountDetails}" iconSrc="sap-icon://employee" />
                         </f:header>
-                        <f:content>
-                            <VBox alignItems="Start" width="100%" class="sapUiMediumMargin">
+                        <f:content class="therapistProfile">
+                            <VBox alignItems="Start" width="100%" class="sapUiMediumMargin ">
                                 <VBox>
                                     <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
                                         <FormattedText htmlText="{therapistCardModel>/fisrtnameLabel}" class="sapUiSmallMarginEnd"/>

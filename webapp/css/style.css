@@ -1,127 +1,110 @@
 .backgroundClass {
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .homeBackgroundClass {
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .splitMenu {
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
   background-attachment: fixed;
   background-size: cover;
 }
 
 .splitButton {
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
   opacity: 0.8;
   background-attachment: fixed;
   background-size: cover;
 }
 .splitButton:hover {
   opacity: 1;
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
   filter: brightness(1.15);
   background-attachment: fixed;
   background-size: cover;
   transition: 0.3s ease;
 }
 
-.sapMIBar.sapMHeader-CTX {
-  background-color: hsl(16, 48%, 95%) !important;
+.therapistName {
+  font-size: larger;
+  color: #435c78f0 !important;
 }
 
-.sapFCard .sapFCardHeader {
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80") !important;
-  filter: brightness(1.15);
-  background-attachment: fixed !important;
-  background-size: cover !important;
+.articleTitle {
+  font-size: xx-large;
+  color: #435c78f0 !important;
+}
+
+.sapMIBar.sapMHeader-CTX {
+  background-color: #02135d !important;
+}
+
+.sapMIBar-CTX .sapMTitle {
+  color: white;
+}
+
+.sapMLabel {
+  color: white;
+  font-size: larger;
 }
 
 .sapFCard .sapFCardContent {
-  background-color: hsl(16, 48%, 95%) !important;
+  background-color: #4e5a8e !important;
 }
 
 .sapMGenericTag .sapMGenericTagWrap {
-  background-color: hsl(16, 48%, 95%) !important;
-  border-color: #435c78f0 !important;
-  filter: brightness(1.04);
-}
-
-.sapMBtnInner {
-  border-color: #819cb7 !important;
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  filter: brightness(1.2);
-  border-color: #819cb7 !important;
-}
-
-.sapUiSizeCompact .sapFGLI .sapFGLIWrapper .sapMLIBContent {
-  background-image: url("https://images.unsplash.com/photo-1596787071320-c06155930dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80") !important;
-  filter: brightness(1.15);
-  background-attachment: fixed !important;
-  background-size: cover !important;
+  background-color: white !important;
 }
 
 span.sapMBtnInner.sapMBtnEmphasized {
-  background-color: #435c78f0 !important;
-  border-color: #435c78f0 !important;
+  background-color: #b3b8ce !important;
+  border-color: #b3b8ce !important;
 }
 
-.sapMInputBaseContentWrapper {
-  background-color: hsl(16, 48%, 95%) !important;
-  filter: brightness(1.04);
+.sapMBtnContent {
+  color: #02135d;
 }
 
-.sapMPCHead .sapMPCHeadActionsToolbar {
-  background-color: hsl(16, 48%, 95%) !important;
+.sapUiIcon {
+  color: white;
 }
 
-.sapMSinglePC .sapMPCHeadNavToolbar.sapMTB-Transparent-CTX.sapMTB {
-  background-color: hsl(16, 48%, 95%) !important;
-}
-
-.sapMSinglePC .sapMPCHeadNavToolbar.sapMTB-Transparent-CTX.sapMTB {
-  background-color: hsl(16, 48%, 95%) !important;
-}
-
-.sapMSinglePCRowHeader {
-  background-color: hsl(16, 48%, 95%) !important;
-}
-
-.sapMSinglePCGridContent {
-  background-color: hsl(16, 48%, 95%) !important;
-}
-
-.sapMSinglePC .sapMSinglePCBlockersRow {
-  background-color: hsl(16, 48%, 95%) !important;
-}
-
-.sapUiCalRow {
-  background-color: hsl(16, 48%, 95%) !important;
-}
-
-.sapUiCalItem {
-  background-color: hsl(16, 48%, 95%) !important;
-}
-
-.sapMSegB .sapMSegBBtn .sapMSegBBtnInner {
-  background-color: hsl(16, 48%, 95%) !important;
-  border-color: #435c78f0 !important;
-  filter: brightness(1.04);
-}
-
-.sapMSegBBtn.sapMSegBBtnFocusable.sapMSegBBtnSel .sapMSegBBtnInner {
-  background-color: #435c78f0 !important;
-  border-color: #435c78f0 !important;
+.sapMPopover .sapMPopoverCont {
+  background-color: #02135d !important;
 }
 
 .buttonClass {
   opacity: 1 !important;
+}
+
+.sapMDialog > header.sapMDialogTitle .sapMTitle {
+  color: white;
+}
+
+.sapMBtnIcon {
+  color: #0854a0 !important;
+}
+
+.therapistProfile {
+  background-color: white !important;
+}
+
+.sapMTitle {
+  color: white;
+}
+
+.sapMTitleStyleH5 {
+  color: white !important;
+}
+
+.sapMFT {
+  color: white !important;
+  font-size: medium;
+}
+
+.sapMInputBaseInner {
+  background-color: #b3b8ce;
+  color: white;
 }
