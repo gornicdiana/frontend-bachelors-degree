@@ -1,0 +1,11 @@
+applications:
+  - name: diana-licenta
+    host: diana-licenta
+    memory: 256M
+    buildpack: staticfile_buildpack
+    disk_quota: 125M
+    timeout: 180
+    memory: 125M
+    instances: 1
+    path: webapp
+

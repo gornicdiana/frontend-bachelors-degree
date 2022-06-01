@@ -6,9 +6,6 @@
 
     <VBox class="sapUiSmallMargin calendarClass">
         <SinglePlanningCalendar id="myCalendar" title= "My Calendar" fullDay="false" startHour="8" endHour="20" appointmentSelect="onAppointmentSelect" headerDateSelect="onHeaderDaySelect" startDateChange="handleStartDateChange" appointments="{appointmentModel>/}">
-            <!-- <actions>
-                <Button id="addNewAppointment" text="Create" press="onPressMakeAppointment" visible="{appointmentModel>create}"/>
-            </actions> -->
             <views>
                 <SinglePlanningCalendarDayView key="DayView" title="Day" />
                 <SinglePlanningCalendarWorkWeekView key="WorkWeekView" title="Work Week" />

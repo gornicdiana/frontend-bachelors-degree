@@ -1,6 +1,6 @@
 sap.ui.define([], function () {
     "use strict";
-    const origin = "http://localhost:5010";
+    const origin = "https://diana-licenta-backend.cfapps.eu10.hana.ondemand.com";
     const student = "/students";
     const therapist = "/therapists";
     const atricle = "/articles";
