@@ -4,36 +4,34 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
-    <Dialog id="therapistProfileDialogID" class="sapUiSmallMarginBeginEnd" title="" contentWidth="600px" horizontalScrolling="false">
+    <Dialog id="therapistProfileDialogID" class="sapUiSmallMarginBeginEnd" title="{therapistCardModel>/contactDetailsHeader}" contentWidth="600px" horizontalScrolling="false">
         <buttons>
             <Button text="{i18n>makeAppointment}" press="onPressMakeAppointment" type="Emphasized"/>
             <Button text="{i18n>Cancel}" press="onCloseProfileDialog" />
         </buttons>
-        <VBox class="sapUiSmallMarginBegin">
-            <HBox width="100%" height="100%">
-                <VBox>
-                    <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
-                    <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
-                    <VBox>
-                        <HBox alignItems="Center">
-                            <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
-                            <FormattedText htmlText="{therapistModel>phone}"/>
-                        </HBox>
-                        <HBox alignItems="Center">
-                            <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
-                            <FormattedText htmlText="{therapistModel>email}"/>
-                        </HBox>
-                    </VBox>
+        <VBox width="100%" height="100%">
+            <HBox width="100%">
+                <VBox width="100%" height="100%" class="sapUiSmallMargin">
+                    <FormattedText htmlText="{therapistCardModel>/name}"/>
+                    <FormattedText htmlText="{therapistProfileModel>/firstname} {therapistProfileModel>/lastname}"/>
                     <HBox alignItems="Center">
-                        <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
-                        <FormattedText htmlText="{therapistModel>/information}"/>
+                        <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
+                        <FormattedText htmlText="{therapistProfileModel>/phone}"/>
+                    </HBox>
+                    <HBox alignItems="Center">
+                        <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
+                        <FormattedText htmlText="{therapistProfileModel>/email}"/>
                     </HBox>
                 </VBox>
-                <VBox class="sapUiSmallMargin">
-                    <Image src="utils/img/doctor1.jpg" height="100px" width="150px"/>
+                <VBox class="sapUiSmallMargin" width="100%" alignItems="End">
+                    <Image src="utils/img/doctor1.jpg" height="200px" width="300px"/>
                 </VBox>
             </HBox>
-
+            <HBox alignItems="Center" class="sapUiSmallMargin">
+                <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
+                <FormattedText htmlText="{therapistProfileModel>/information}"/>
+            </HBox>
         </VBox>
+
     </Dialog>
 </core:FragmentDefinition>

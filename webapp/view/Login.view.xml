@@ -23,7 +23,7 @@
 							<VBox id="buttonsHBox" alignItems="Center" class="sapUiSmallMargin" width="100%" height="100%">
 								<Label id="registerLabelID" text="{i18n>registerText}"/>
 								<Button id="registerButton" type="Transparent" text="Register" press="goToRegister"/>
-								<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin"/>
+								<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin" class="sapUiTinyMarginTop"/>
 							</VBox>
 						</VBox>
 					</f:content>

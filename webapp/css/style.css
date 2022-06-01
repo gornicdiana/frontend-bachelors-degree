@@ -1,6 +1,5 @@
 .backgroundClass {
-  background-repeat: no-repeat;
-  background-size: cover;
+  color: white !important;
 }
 
 .homeBackgroundClass {
@@ -46,12 +45,12 @@
 }
 
 .sapMLabel {
-  color: white;
+  color: #02135d;
   font-size: larger;
 }
 
 .sapFCard .sapFCardContent {
-  background-color: #4e5a8e !important;
+  background-color: white !important;
 }
 
 .sapMGenericTag .sapMGenericTagWrap {
@@ -68,11 +67,11 @@ span.sapMBtnInner.sapMBtnEmphasized {
 }
 
 .sapUiIcon {
-  color: white;
+  color: #02135d;
 }
 
 .sapMPopover .sapMPopoverCont {
-  background-color: #02135d !important;
+  background-color: white !important;
 }
 
 .buttonClass {
@@ -91,20 +90,20 @@ span.sapMBtnInner.sapMBtnEmphasized {
   background-color: white !important;
 }
 
-.sapMTitle {
-  color: white;
-}
-
-.sapMTitleStyleH5 {
-  color: white !important;
-}
+/* .sapMTitle {
+  color: #02135d !important;
+} */
 
 .sapMFT {
-  color: white !important;
+  color: #02135d !important;
   font-size: medium;
 }
 
 .sapMInputBaseInner {
-  background-color: #b3b8ce;
-  color: white;
+  background-color: white;
+  color: #4e5a8e;
+}
+
+.sapFGLI {
+  grid-area: span 4 / span 6 / auto / auto;
 }

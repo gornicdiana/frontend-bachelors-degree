@@ -9,13 +9,15 @@
         </f:customLayout>
         <f:GridListItem class="sapUiSmallMargin">
             <f:layoutData>
-                <grid:ResponsiveColumnItemLayoutData columns="4" rows="3" />
+                <grid:ResponsiveColumnItemLayoutData columns="8" rows="6" />
             </f:layoutData>
             <VBox class="sapUiSmallMarginBegin sapUiMediumMarginTop">
                 <HBox>
-                    <VBox>
-                        <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
-                        <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                    <VBox justifyContent="Start">
+                        <VBox>
+                            <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
+                            <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                        </VBox>
                         <VBox>
                             <HBox alignItems="Center">
                                 <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
@@ -31,8 +33,8 @@
                             <FormattedText htmlText="{therapistModel>/information}"/>
                         </HBox>
                     </VBox>
-                    <VBox class="sapUiSmallMargin">
-                        <Image src="utils/img/doctor1.jpg" height="100px" width="150px"/>
+                    <VBox class="sapUiSmallMargin" alignItems="End" width="100%">
+                        <Image src="utils/img/doctor1.jpg" height="200px" width="300px"/>
                     </VBox>
                 </HBox>
                 <HBox justifyContent="Center" alignItems="Center">

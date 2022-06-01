@@ -16,7 +16,7 @@
                 </HBox>
                 <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.ArticleCard" type="XML" />
             </Page>
-            <Page id="therapistsSplitID" title=" All Therapists" class="homeBackgroundClass">
+            <Page id="therapistsSplitID" title="All Therapists" class="homeBackgroundClass">
                 <c:Fragment id="therapistFragmentID" fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
             </Page>
             <Page id="accountSplitID" title="Account" class="homeBackgroundClass">

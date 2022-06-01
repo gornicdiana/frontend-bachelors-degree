@@ -65,7 +65,8 @@ sap.ui.define([
         formatTherapistCardsText: async function () {
             let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
             let therapistCardModel = this.getView().getModel("therapistCardModel");
-            therapistCardModel.contactDetailsHeader = '<h5 style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("contactDetailsHeader") + "</h5>",
+            therapistCardModel.contactDetailsHeader = oResourceBundle.getText("contactDetailsHeader"),
+            therapistCardModel.name = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("name") + '</p>',
             therapistCardModel.phoneHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("phoneHeader") + '</p>',
             therapistCardModel.emailHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("emailHeader") + '</p>',
             therapistCardModel.informationHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("informationHeader") + '</p>'
@@ -124,10 +125,18 @@ sap.ui.define([
         },
 
         _findTherapist: function (oEvent) {
+            debugger;
             let selectedTherapistPath = oEvent.getSource().getBindingContext("articleModel").getPath();
             selectedTherapistPath = selectedTherapistPath.slice(-1);
-            let selectedTherapist = this.getView().getModel("therapistModel").getData()[selectedTherapistPath];
-            this.getView().getModel("therapistProfileModel").setData(selectedTherapist);
+            let selectedTherapist = this.getView().getModel("articleModel").getData()[selectedTherapistPath].email;
+            let therapists = this.getView().getModel("therapistModel").getData();
+            therapists.forEach((therapist) => {
+                if (therapist.email == selectedTherapist) {
+                    debugger;
+                    this.getView().getModel("therapistProfileModel").setData(therapist);
+                }
+            })
+
         },
 
         // TO DO: sa nu poti alege alt therapist aici
