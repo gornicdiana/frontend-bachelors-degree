@@ -18,9 +18,9 @@ sap.ui.define([
             const data = this.getView().getModel("loginModel").getData();
             const email = data.email;
             const password = data.password;
-            if (email == "") {
+            if (email == undefined) {
                 this.errorHandler("emptyMessage");
-            } else if (password == "") {
+            } else if (password == undefined) {
                 this.errorHandler("passwordMessage");
             } else if (!this._validateEmail(email)) {
                 this.errorHandler("emailMessage");
@@ -48,38 +48,23 @@ sap.ui.define([
 
         onLoginStudent: async function () {
             const data = this.getView().getModel("loginModel").getData();
-            let existentStudent = await this.loginStudent(data);
-            if (existentStudent) {
-                this.getRouter().navTo("Home", {token: this.userToken});
-            } else {
-                this.errorHandler("StudentNotExist");
-            }
-        },
 
-        loginStudent: async function (userData) {
-            let res;
-            const student = await this.post(URLs.getStudentUrl() + "/login", userData);
-            this.userToken = student;
-            res = true;
-            return res;
+            this.post(URLs.getStudentUrl() + "/login", data).then(data => {
+                this.userToken = data;
+                this.getRouter().navTo("Home", {token: this.userToken});
+            }).catch(err => {
+                this.errorHandler("wrongAccount")
+            })
         },
 
         onLoginTherapist: async function () {
             const data = this.getView().getModel("loginModel").getData();
-            let existentTherapist = await this.loginTherapist(data);
-            if (existentTherapist) {
+            this.post(URLs.getStudentUrl() + "/login", data).then(data => {
+                this.userToken = data;
                 this.getRouter().navTo("HomeTherapist", {token: this.userToken});
-            } else {
-                this.errorHandler("TherapistNotExist");
-            }
-        },
-
-        loginTherapist: async function (userData) {
-            let res;
-            const therapist = await this.post(URLs.getTherapistUrl() + "/login", userData);
-            this.userToken = therapist;
-            res = true;
-            return res;
+            }).catch(err => {
+                this.errorHandler("wrongAccount")
+            })
         },
 
         goToRegister: function () {

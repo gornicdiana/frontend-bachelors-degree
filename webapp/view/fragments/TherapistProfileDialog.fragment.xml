@@ -14,14 +14,10 @@
                 <VBox width="100%" height="100%" class="sapUiSmallMargin">
                     <FormattedText htmlText="{therapistCardModel>/name}"/>
                     <FormattedText htmlText="{therapistProfileModel>/firstname} {therapistProfileModel>/lastname}"/>
-                    <HBox alignItems="Center">
-                        <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
-                        <FormattedText htmlText="{therapistProfileModel>/phone}"/>
-                    </HBox>
-                    <HBox alignItems="Center">
-                        <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
-                        <FormattedText htmlText="{therapistProfileModel>/email}"/>
-                    </HBox>
+                    <FormattedText htmlText="{therapistCardModel>/phoneHeader}"/>
+                    <FormattedText htmlText="{therapistProfileModel>/phone}"/>
+                    <FormattedText htmlText="{therapistCardModel>/emailHeader}"/>
+                    <FormattedText htmlText="{therapistProfileModel>/email}"/>
                 </VBox>
                 <VBox class="sapUiSmallMargin" width="100%" alignItems="End">
                     <Image src="utils/img/doctor1.jpg" height="200px" width="300px"/>

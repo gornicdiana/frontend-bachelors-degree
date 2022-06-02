@@ -17,6 +17,15 @@ sap.ui.define([
             this.getRouter().navTo("Login");
         },
 
+        onRegisterUser: function () {
+            if (this._isInputValid()) {
+                const email = this.byId("emailInput").getValue();
+                this._findUserType(email);
+            } else {
+                this.errorHandler("registerError");
+            }
+        },
+
         _isInputValid: function () {
             let inputs = this._getInputFields();
             let noValidationError = true;
@@ -92,21 +101,12 @@ sap.ui.define([
             return true;
         },
 
-        onRegisterUser: function () {
-            if (this._isInputValid()) {
-                const email = this.byId("emailInput").getValue();
-                this._findUserType(email);
-            } else {
-                this.errorHandler("registerError");
-            }
-        },
-
         _findUserType: function (email) {
-            let studentUser = email.search("@student");
+            let studentUser = email.search("@student.upt.ro");
             if (studentUser != -1) {
                 this.onRegisterStudent();
             } else {
-                this.errorHandler("AccountNotPermitted");
+                this.errorHandler("You must use an student's email address");
             }
         },
 
@@ -127,15 +127,15 @@ sap.ui.define([
             this.post(URLs.postStudentUrl() + "/register", {oRegisterData}).then(data => {
                 this.userToken = data;
             }).catch(err => {
-                this.errorHandler("registerPostError")
+                this.errorHandler("Something went wrong with your registration")
             })
         },
 
-        _emptyFields: function () {
-            const aInputs = this._getInputFields();
-            aInputs.forEach(sId => {
-                this.getView().byId(sId).setValue("");
-            })
-        }
+        // _emptyFields: function () {
+        //     const aInputs = this._getInputFields();
+        //     aInputs.forEach(sId => {
+        //         this.getView().byId(sId).setValue("");
+        //     })
+        // }
     });
 });

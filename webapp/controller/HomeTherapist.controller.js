@@ -51,7 +51,6 @@ sap.ui.define([
                 appointment.create = false;
             })
             this.getView().getModel("appointmentModel").setData(appointments);
-            debugger;
         },
 
         formatTherapistCardsText: async function () {

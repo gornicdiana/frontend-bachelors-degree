@@ -18,11 +18,11 @@
                                 <HBox justifyContent="SpaceBetween" class="sapUiSmallMargin">
                                     <VBox class="sapUiSmallMargin">
                                         <Label text="Registration Number" labelFor="registrationNumberInput"/>
-                                        <Input id="registrationNumberInput" required="true" placeholder="Reg. Number..." valueStateText="{i18n>registerFirstNameStateValueText}" value="{registerModel>/registrationNumber}"/>
+                                        <Input id="registrationNumberInput" required="true" placeholder="Reg. Number..." valueStateText="{i18n>registerRegistrationNumberStateValueText}" value="{registerModel>/registrationNumber}"/>
                                     </VBox>
                                     <VBox class="sapUiSmallMargin">
                                         <Label text="Username" labelFor="usernameInput"/>
-                                        <Input id="usernameInput" required="true" placeholder="Username..." valueStateText="{i18n>registerLastNameStateValueText}" value="{registerModel>/username}"/>
+                                        <Input id="usernameInput" required="true" placeholder="Username..." valueStateText="{i18n>registerUsernameStateValueText}" value="{registerModel>/username}"/>
                                     </VBox>
                                 </HBox>
                                 <VBox justifyContent="Center" alignItems="Center">
@@ -33,9 +33,11 @@
                                     <Input id="confirmPasswordInput" class="sapUiTinyMarginTop" type="Password" required="true" placeholder="Confirm password..." valueStateText="{i18n>registerConfirmPasswordStateValueText}" value="{registerModel>/confirmPassword}" width="250px"/>
                                 </VBox>
                             </VBox>
-                            <Label text="Already have an account?"/>
-                            <Button type="Transparent" text="Login" press="goToLogin"/>
                             <Button type="Emphasized" text="Register" press="onRegisterUser" class="sapUiTinyMarginTop"/>
+                            <VBox class="sapUiSmallMarginTop">
+                                <Label text="Already have an account?"/>
+                                <Button type="Transparent" text="Login" press="goToLogin"/>
+                            </VBox>
                         </VBox>
                     </f:content>
                 </f:Card>

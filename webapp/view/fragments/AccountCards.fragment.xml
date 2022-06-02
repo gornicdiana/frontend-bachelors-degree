@@ -5,7 +5,7 @@
     xmlns:card="sap.f.cards"
     xmlns:grid="sap.ui.layout.cssgrid">
 
-    <f:GridList id="therapistCardID">
+    <f:GridList id="therapistCardID" items="{appointmentModel>/}">
         <f:customLayout>
             <grid:ResponsiveColumnLayout />
         </f:customLayout>
@@ -16,53 +16,17 @@
             <VBox>
                 <f:Card>
                     <f:header>
-                        <card:Header title="Past appointments"/>
+                        <card:Header title="{appointmentModel>name}"/>
                     </f:header>
                     <f:content>
-                        <VBox class="sapUiSmallMargin">
-
+                        <VBox class="sapUiSmallMargin" alignItems="Start">
+                            <Label text="Therapist: {appointmentModel>therapist}"/>
+                            <Label text="Date: {appointmentModel>startDate}"/>
+                            <Label text="Category: {appointmentModel>category}"/>
                         </VBox>
                     </f:content>
                 </f:Card>
             </VBox>
-
         </f:GridListItem>
-        <f:GridListItem class="sapUiSmallMargin">
-            <f:layoutData>
-                <grid:ResponsiveColumnItemLayoutData columns="4" rows="4" />
-            </f:layoutData>
-            <VBox>
-                <f:Card>
-                    <f:header>
-                        <card:Header title="Past appointments"/>
-                    </f:header>
-                    <f:content>
-                        <VBox class="sapUiSmallMargin">
-
-                        </VBox>
-                    </f:content>
-                </f:Card>
-            </VBox>
-
-        </f:GridListItem>
-        <f:GridListItem class="sapUiSmallMargin">
-            <f:layoutData>
-                <grid:ResponsiveColumnItemLayoutData columns="4" rows="4" />
-            </f:layoutData>
-            <VBox>
-                <f:Card>
-                    <f:header>
-                        <card:Header title="Past appointments"/>
-                    </f:header>
-                    <f:content>
-                        <VBox class="sapUiSmallMargin">
-
-                        </VBox>
-                    </f:content>
-                </f:Card>
-            </VBox>
-
-        </f:GridListItem>
-
     </f:GridList>
 </core:FragmentDefinition>

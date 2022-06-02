@@ -39,7 +39,6 @@
                 </HBox>
                 <HBox justifyContent="Center" alignItems="Center">
                     <Button text="Make an appointment" type="Emphasized" class="sapUiSmallMargin" press="onPressMakeAppointment"/>
-                    <Button text="Contact Therapist" class="sapUiSmallMargin" press="onPressContactTherapistFromArticle"/>
                 </HBox>
             </VBox>
         </f:GridListItem>

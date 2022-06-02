@@ -20,10 +20,10 @@
 								<Label id="passwordLabelID" class="sapUiSmallMarginTop" text="Password"/>
 								<Input id="passwordInputID" class="sapUiTinyMarginTop" type="Password" placeholder="{i18n>passwordInput}" value="{loginModel>/password}" width="250px"/>
 							</VBox>
-							<VBox id="buttonsHBox" alignItems="Center" class="sapUiSmallMargin" width="100%" height="100%">
+							<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin" class="sapUiTinyMarginTop"/>
+							<VBox id="buttonsHBox" alignItems="Center" class="sapUiMediumMarginTop" width="100%" height="100%">
 								<Label id="registerLabelID" text="{i18n>registerText}"/>
 								<Button id="registerButton" type="Transparent" text="Register" press="goToRegister"/>
-								<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin" class="sapUiTinyMarginTop"/>
 							</VBox>
 						</VBox>
 					</f:content>

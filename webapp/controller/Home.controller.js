@@ -46,10 +46,11 @@ sap.ui.define([
 
             appointments.forEach((appointment) => {
                 appointment.create = true;
-                appointment.startDate = new Date(appointment.startDate);
-                appointment.endDate = new Date(appointment.endDate);
+                appointment.startDate = new Date(appointment.startDate).toDateString();
+                appointment.endDate = new Date(appointment.endDate).toDateString();
             })
             this.getView().getModel("appointmentModel").setData(appointments);
+            debugger;
         },
 
         getAllTherapists: async function () {
@@ -175,6 +176,7 @@ sap.ui.define([
 
         onCloseAppointmentDialog: function () {
             this.pCreatePopover.close();
+            this.onCloseProfileDialog();
         },
 
         onSaveNewAppointment: async function (oEvent) {
