@@ -104,15 +104,10 @@ sap.ui.define([
         _findUserType: function (email) {
             let studentUser = email.search("@student.upt.ro");
             if (studentUser != -1) {
-                this.onRegisterStudent();
+                this.sendRegisterRequest();
             } else {
                 this.errorHandler("You must use an student's email address");
             }
-        },
-
-        onRegisterStudent: function () {
-            this.sendRegisterRequest();
-            this.getRouter().navTo("Home");
         },
 
         sendRegisterRequest: function () {
@@ -126,16 +121,11 @@ sap.ui.define([
             }
             this.post(URLs.postStudentUrl() + "/register", {oRegisterData}).then(data => {
                 this.userToken = data;
+                this.getRouter().navTo("Home", {token: this.userToken});
             }).catch(err => {
                 this.errorHandler("Something went wrong with your registration")
             })
-        },
+        }
 
-        // _emptyFields: function () {
-        //     const aInputs = this._getInputFields();
-        //     aInputs.forEach(sId => {
-        //         this.getView().byId(sId).setValue("");
-        //     })
-        // }
     });
 });
