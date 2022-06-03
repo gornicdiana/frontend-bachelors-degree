@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f">
+
+
+    <FlexBox justifyContent="Center">
+        <f:Card class="sapUiMediumMargin" width="40rem" height="30rem">
+            <f:content class="therapistProfile">
+                <VBox alignItems="Start" width="100%" class="sapUiMediumMargin ">
+                    <VBox>
+                        <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
+                            <FormattedText htmlText="{therapistCardModel>/fisrtnameLabel}" class="sapUiSmallMarginEnd"/>
+                            <FormattedText htmlText="{therapistModel>/firstname}"/>
+
+                        </HBox>
+                        <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
+                            <FormattedText htmlText="{therapistCardModel>/lastnameLabel}" class="sapUiSmallMarginEnd"/>
+                            <FormattedText htmlText="{therapistModel>/lastname}"/>
+                        </HBox>
+                        <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
+                            <FormattedText htmlText="{therapistCardModel>/phone}" class="sapUiSmallMarginEnd"/>
+                            <FormattedText htmlText="{therapistModel>/phone}"/>
+                        </HBox>
+                    </VBox>
+                    <FormattedText htmlText="{therapistCardModel>/description}" class="sapUiTinyMarginTop"/>
+                    <TextArea value="{therapistModel>/info}" width="30rem" height="10rem" class="sapUiTinyMarginTop"/>
+                    <HBox justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
+                        <Button text="{i18n>updateProfileButton}" press="onPressUpdateProfileButton" class="sapUiSmallMarginEnd"/>
+                        <Button text="Logout" type="Emphasized" press="onPressLogout" />
+                    </HBox>
+
+                </VBox>
+            </f:content>
+        </f:Card>
+    </FlexBox>
+</core:FragmentDefinition>

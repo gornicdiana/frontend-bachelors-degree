@@ -59,7 +59,7 @@ sap.ui.define([
 
         onLoginTherapist: async function () {
             const data = this.getView().getModel("loginModel").getData();
-            this.post(URLs.getStudentUrl() + "/login", data).then(data => {
+            this.post(URLs.getTherapistUrl() + "/login", data).then(data => {
                 this.userToken = data;
                 this.getRouter().navTo("HomeTherapist", {token: this.userToken});
             }).catch(err => {

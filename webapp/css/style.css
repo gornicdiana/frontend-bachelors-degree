@@ -111,3 +111,7 @@ span.sapMBtnInner.sapMBtnEmphasized {
 .sapFGLI {
   grid-area: span 4 / span 6 / auto / auto;
 }
+
+.sapMLabel .sapMLabelTextWrapper {
+  font-size: medium;
+}
