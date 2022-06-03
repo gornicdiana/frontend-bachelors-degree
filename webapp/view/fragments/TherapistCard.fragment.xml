@@ -9,14 +9,14 @@
         </f:customLayout>
         <f:GridListItem class="sapUiSmallMargin">
             <f:layoutData>
-                <grid:ResponsiveColumnItemLayoutData columns="8" rows="6" />
+                <grid:ResponsiveColumnItemLayoutData columns="7" rows="5" />
             </f:layoutData>
             <VBox class="sapUiSmallMarginBegin sapUiMediumMarginTop">
                 <HBox>
                     <VBox justifyContent="Start">
                         <VBox>
-                            <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
                             <FormattedText htmlText="{therapistCardModel>/contactDetailsHeader}"/>
+                            <FormattedText htmlText="{therapistModel>firstname} {therapistModel>lastname}"/>
                         </VBox>
                         <VBox>
                             <HBox alignItems="Center">
@@ -28,18 +28,17 @@
                                 <FormattedText htmlText="{therapistModel>email}"/>
                             </HBox>
                         </VBox>
-                        <HBox alignItems="Center">
-                            <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
-                            <FormattedText htmlText="{therapistModel>/information}"/>
-                        </HBox>
                     </VBox>
                     <VBox class="sapUiSmallMargin" alignItems="End" width="100%">
-                        <Image src="utils/img/doctor1.jpg" height="200px" width="300px"/>
+                        <Image src="{therapistModel>picture}" height="180px" width="250px"/>
                     </VBox>
                 </HBox>
-                <HBox justifyContent="Center" alignItems="Center">
-                    <Button text="Make an appointment" type="Emphasized" class="sapUiSmallMargin" press="onPressMakeAppointment"/>
-                </HBox>
+                <VBox >
+                    <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
+                    <FormattedText htmlText="{therapistModel>information}"/>
+                </VBox>
+
+                <Button text="Make an appointment" type="Emphasized" class="sapUiSmallMargin" press="onPressMakeAppointment"/>
             </VBox>
         </f:GridListItem>
     </f:GridList>

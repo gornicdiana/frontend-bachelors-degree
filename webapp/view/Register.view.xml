@@ -34,7 +34,7 @@
                                 </VBox>
                             </VBox>
                             <Button type="Emphasized" text="Register" press="onRegisterUser" class="sapUiTinyMarginTop"/>
-                            <VBox class="sapUiSmallMarginTop">
+                            <VBox class="sapUiSmallMarginTop" alignItems="Center">
                                 <Label text="Already have an account?"/>
                                 <Button type="Transparent" text="Login" press="goToLogin"/>
                             </VBox>

@@ -34,10 +34,6 @@ sap.ui.define([
 
         getAllArticles: async function () {
             const articles = await this.get(URLs.getArticleUrl() + "/allArticles");
-
-            // articles.forEach((article) => {
-            //     article.author = '<h5 style="color: #0854A0; font-weight: bold;">' + article.author + '</h5>'
-            // })
             this.getView().getModel("articleModel").setData(articles);
         },
 
@@ -50,15 +46,11 @@ sap.ui.define([
                 appointment.endDate = new Date(appointment.endDate).toDateString();
             })
             this.getView().getModel("appointmentModel").setData(appointments);
-            debugger;
         },
 
         getAllTherapists: async function () {
             const therapists = await this.get(URLs.getTherapistUrl() + "/allTherapists");
-            // therapists.forEach((therapist) => {
-            //     therapist.firstname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.firstname + '</h3>';
-            //     therapist.lastname = '<h3 style="color: #0854A0; font-weight: bold;">' + therapist.lastname + '</h3>';
-            // })
+            debugger;
             this.getView().getModel("therapistModel").setData(therapists);
 
         },
@@ -66,7 +58,7 @@ sap.ui.define([
         formatTherapistCardsText: async function () {
             let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
             let therapistCardModel = this.getView().getModel("therapistCardModel");
-            therapistCardModel.contactDetailsHeader = oResourceBundle.getText("contactDetailsHeader"),
+            therapistCardModel.contactDetailsHeader = '<h5 style="color: #435c78f0; font-weight: bold;">' + oResourceBundle.getText("contactDetailsHeader") + '</h3>',
             therapistCardModel.name = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("name") + '</p>',
             therapistCardModel.phoneHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("phoneHeader") + '</p>',
             therapistCardModel.emailHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("emailHeader") + '</p>',
