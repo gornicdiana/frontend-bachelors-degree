@@ -35,6 +35,7 @@ sap.ui.define([
             this.getView().getModel("therapistModel").setProperty("/firstname", '<h5 style="color: #0854A0;">' + getdata.firstname + '</h5>');
             this.getView().getModel("therapistModel").setProperty("/lastname", '<h5 style="color: #0854A0; font-weight: bold;">' + getdata.lastname + '</h5>');
             this.getView().getModel("therapistModel").setProperty("/info", getdata.information);
+            this.getView().getModel("therapistModel").setProperty("/picture", getdata.picture);
         },
 
         getTherapistArticles: async function () {

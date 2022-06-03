@@ -5,31 +5,35 @@
 
 
     <FlexBox justifyContent="Center">
-        <f:Card class="sapUiMediumMargin" width="40rem" height="30rem">
+        <f:Card class="sapUiMediumMargin" width="45rem" height="40rem">
             <f:content class="therapistProfile">
-                <VBox alignItems="Start" width="100%" class="sapUiMediumMargin ">
-                    <VBox>
-                        <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
-                            <FormattedText htmlText="{therapistCardModel>/fisrtnameLabel}" class="sapUiSmallMarginEnd"/>
-                            <FormattedText htmlText="{therapistModel>/firstname}"/>
+                <VBox alignItems="Center" justifyContent="Center" width="100%" class="sapUiMediumMargin ">
+                    <HBox>
+                        <VBox>
+                            <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
+                                <FormattedText htmlText="{therapistCardModel>/fisrtnameLabel}" class="sapUiSmallMarginEnd"/>
+                                <FormattedText htmlText="{therapistModel>/firstname}"/>
 
-                        </HBox>
-                        <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
-                            <FormattedText htmlText="{therapistCardModel>/lastnameLabel}" class="sapUiSmallMarginEnd"/>
-                            <FormattedText htmlText="{therapistModel>/lastname}"/>
-                        </HBox>
-                        <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
-                            <FormattedText htmlText="{therapistCardModel>/phone}" class="sapUiSmallMarginEnd"/>
-                            <FormattedText htmlText="{therapistModel>/phone}"/>
-                        </HBox>
-                    </VBox>
+                            </HBox>
+                            <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
+                                <FormattedText htmlText="{therapistCardModel>/lastnameLabel}" class="sapUiSmallMarginEnd"/>
+                                <FormattedText htmlText="{therapistModel>/lastname}"/>
+                            </HBox>
+                            <HBox justifyContent="Start" alignItems="Center" class="sapUiTinyMarginTop">
+                                <FormattedText htmlText="{therapistCardModel>/phone}" class="sapUiSmallMarginEnd"/>
+                                <FormattedText htmlText="{therapistModel>/phone}"/>
+                            </HBox>
+                        </VBox>
+                        <VBox class="sapUiSmallMargin" alignItems="End" width="100%">
+                            <Image src="{therapistModel>/picture}" height="180px" width="250px"/>
+                        </VBox>
+                    </HBox>
                     <FormattedText htmlText="{therapistCardModel>/description}" class="sapUiTinyMarginTop"/>
                     <TextArea value="{therapistModel>/info}" width="30rem" height="10rem" class="sapUiTinyMarginTop"/>
                     <HBox justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
                         <Button text="{i18n>updateProfileButton}" press="onPressUpdateProfileButton" class="sapUiSmallMarginEnd"/>
                         <Button text="Logout" type="Emphasized" press="onPressLogout" />
                     </HBox>
-
                 </VBox>
             </f:content>
         </f:Card>
