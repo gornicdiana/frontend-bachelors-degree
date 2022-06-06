@@ -15,24 +15,24 @@
                             <SlideTile class="sapUiTinyMarginBegin sapUiMediumMarginBottom sapUiMediumMarginTop">
                                 <GenericTile backgroundImage="utils/img/therapy.jpg" frameType="TwoByOne" size="Responsive">
                                     <TileContent footer="{i18n>footer1}">
-                                        <NewsContent contentText="{i18n>text1}" />
+                                        <NewsContent class="slideText" contentText="{i18n>text1}" />
                                     </TileContent>
                                 </GenericTile>
                                 <GenericTile backgroundImage="utils/img/comunity.jpg" frameType="TwoByOne" size="Responsive">
                                     <TileContent footer="{i18n>footer2}">
-                                        <NewsContent contentText="{i18n>text2}" />
+                                        <NewsContent class="slideText" contentText="{i18n>text2}" />
                                     </TileContent>
                                 </GenericTile>
                             </SlideTile>
                             <SlideTile class="sapUiTinyMarginBegin sapUiMediumMarginTop">
                                 <GenericTile backgroundImage="utils/img/learn.jpg" frameType="TwoByOne" size="Responsive">
                                     <TileContent footer="{i18n>footer3}">
-                                        <NewsContent contentText="{i18n>text3}" />
+                                        <NewsContent class="slideText" contentText="{i18n>text3}" />
                                     </TileContent>
                                 </GenericTile>
                                 <GenericTile backgroundImage="utils/img/selfLove.jpg" frameType="TwoByOne" size="Responsive">
                                     <TileContent footer="{i18n>footer4}">
-                                        <NewsContent contentText="{i18n>text4}" />
+                                        <NewsContent class="slideText" contentText="{i18n>text4}" />
                                     </TileContent>
                                 </GenericTile>
                             </SlideTile>

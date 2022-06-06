@@ -99,6 +99,11 @@ span.sapMBtnInner.sapMBtnEmphasized {
 } */
 
 .sapMFT {
+  color: #02135d;
+  font-size: medium;
+}
+
+.sapMFT .slideText {
   color: white !important;
   font-size: medium;
 }

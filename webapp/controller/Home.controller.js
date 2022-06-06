@@ -50,7 +50,6 @@ sap.ui.define([
 
         getAllTherapists: async function () {
             const therapists = await this.get(URLs.getTherapistUrl() + "/allTherapists");
-            debugger;
             this.getView().getModel("therapistModel").setData(therapists);
 
         },
@@ -189,8 +188,11 @@ sap.ui.define([
         // PROFILE PAGE
         onPressLogout: function () {
             this.getRouter().navTo("Welcome");
-        }
+        },
 
+        openUrl: function (url, newTab) { // Require the URLHelper and open the URL in a new window or tab (same as _blank):
+            sap.ui.require(["sap/m/library"], ({URLHelper}) => URLHelper.redirect(url, newTab));
+        }
 
     });
 

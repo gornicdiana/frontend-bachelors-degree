@@ -141,6 +141,7 @@ sap.ui.define([
             this.getView().getModel("appointmentDetailsModel").setProperty("/startDate", startDate);
             this.getView().getModel("appointmentDetailsModel").setProperty("/endDate", endDate);
             this.getView().getModel("appointmentDetailsModel").setProperty("/name", name);
+            this.getView().getModel("appointmentDetailsModel").setProperty("/link", "");
             if (!this.pDetailsPopover) {
                 Fragment.load({name: "licenta.view.fragments.AppointmentDetailsPopOver", controller: this}).then((oDetailsPopover) => {
                     this.pDetailsPopover = oDetailsPopover
@@ -152,7 +153,13 @@ sap.ui.define([
             }
         },
 
-        onAttendButton: function () {
+        onAcceptAppointment: async function () {
+            let link = this.getView().getModel("appointmentDetailsModel").getData().link;
+            const token = this.userToken;
+            await this.put(URLs.getAppointmentUrl() + "/update", {
+                link
+            }, token).then(async (data) => {})
+            MessageToast.show("Link sent!");
             this.pDetailsPopover.close();
         },
 

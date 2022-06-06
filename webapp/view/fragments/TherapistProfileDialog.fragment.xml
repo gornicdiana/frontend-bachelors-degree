@@ -24,7 +24,6 @@
                 </VBox>
             </HBox>
             <HBox alignItems="Center" class="sapUiSmallMargin">
-                <FormattedText htmlText="{therapistCardModel>/informationHeader}"/>
                 <FormattedText htmlText="{therapistProfileModel>/information}"/>
             </HBox>
         </VBox>

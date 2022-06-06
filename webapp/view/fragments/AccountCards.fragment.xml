@@ -19,11 +19,16 @@
                         <card:Header title="{appointmentModel>name}"/>
                     </f:header>
                     <f:content>
-                        <VBox class="sapUiSmallMargin" alignItems="Start">
-                            <Label text="Therapist: {appointmentModel>therapist}"/>
-                            <Label text="Date: {appointmentModel>startDate}"/>
-                            <Label text="Category: {appointmentModel>category}"/>
-                        </VBox>
+                        <HBox>
+                            <VBox class="sapUiSmallMargin" alignItems="Start" width="50%">
+                                <Label text="Therapist: {appointmentModel>therapist}"/>
+                                <Label text="Date: {appointmentModel>startDate}"/>
+                                <Label text="Category: {appointmentModel>category}"/>
+                            </VBox>
+                            <VBox justifyContent="End" alignContent="End">
+                                <Button type="Emphasized" text="Start Meeting" press=".openUrl(${appointmentModel>link}, true)"/>
+                            </VBox>
+                        </HBox>
                     </f:content>
                 </f:Card>
             </VBox>
