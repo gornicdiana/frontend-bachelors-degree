@@ -11,7 +11,8 @@
     "main": "webapp/index.html",
     "devDependencies": {
         "@sap/ux-ui5-tooling": "1",
-        "@ui5/cli": "^2.14.8"
+        "@ui5/cli": "^2.14.8",
+        "loadtest": "*"
     },
     "scripts": {
         "start": "ui5 serve --config=ui5.yaml --open index.html",

@@ -6,7 +6,7 @@
 	xmlns:f="sap.f"
 	xmlns:card="sap.f.cards">
 
-	<Page id="loginPage" class="sapUiResponsiveContentPadding backgroundClass" title="Login" titleAlignment="Center" showNavButton="true" navButtonPress="onGoBackToWelcome">
+	<Page id="loginPage" class="sapUiResponsiveContentPadding backgroundClass" title="{i18n>login}" titleAlignment="Center" showNavButton="true" navButtonPress="onGoBackToWelcome">
 		<content>
 			<VBox alignItems="Center" width="100%" height="100%">
 				<f:Card class="sapUiMediumMargin cardClass" width="500px" height="600px">

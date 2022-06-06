@@ -99,8 +99,18 @@ span.sapMBtnInner.sapMBtnEmphasized {
 } */
 
 .sapMFT {
-  color: #02135d !important;
+  color: white !important;
   font-size: medium;
+}
+
+.sapMTileCnt.News .sapMTileCntFtrTxt {
+  font-size: medium;
+}
+
+.sapMTileCnt.News {
+  background-color: rgb(7 55 102 / 58%);
+  height: 4.5rem;
+  margin-top: 1.8rem;
 }
 
 .sapMInputBaseInner {

@@ -4,41 +4,41 @@
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
 
-    <Page title="Welcome!" class="backgroundClass" titleAlignment="Center">
+    <Page title="{i18n>welcomeTitle}" class="backgroundClass" titleAlignment="Center">
         <content>
             <VBox alignItems="Center">
                 <f:Card class="sapUiMediumMargin cardClass" width="600px" height="700px">
                     <f:content>
                         <VBox class="sapUiMediumMargin" alignItems="Center" width="100%">
-                            <Label text="Learn more" class="cardTitle"/>
-                            <Label text="Login or create an account" class="cardSubtitle"/>
+                            <Label text="{i18n>welcomeCardTitle}" class="cardTitle"/>
+                            <Label text="{i18n>welcomeCardSubtitle}" class="cardSubtitle"/>
                             <SlideTile class="sapUiTinyMarginBegin sapUiMediumMarginBottom sapUiMediumMarginTop">
                                 <GenericTile backgroundImage="utils/img/therapy.jpg" frameType="TwoByOne" size="Responsive">
-                                    <TileContent footer="Meet out experts">
-                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                    <TileContent footer="{i18n>footer1}">
+                                        <NewsContent contentText="{i18n>text1}" />
                                     </TileContent>
                                 </GenericTile>
                                 <GenericTile backgroundImage="utils/img/comunity.jpg" frameType="TwoByOne" size="Responsive">
-                                    <TileContent footer="Be part of a comunity">
-                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                    <TileContent footer="{i18n>footer2}">
+                                        <NewsContent contentText="{i18n>text2}" />
                                     </TileContent>
                                 </GenericTile>
                             </SlideTile>
                             <SlideTile class="sapUiTinyMarginBegin sapUiMediumMarginTop">
                                 <GenericTile backgroundImage="utils/img/learn.jpg" frameType="TwoByOne" size="Responsive">
-                                    <TileContent footer="Learn and grow">
-                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                    <TileContent footer="{i18n>footer3}">
+                                        <NewsContent contentText="{i18n>text3}" />
                                     </TileContent>
                                 </GenericTile>
-                                <GenericTile backgroundImage="utils/img/comunity.jpg" frameType="TwoByOne" size="Responsive">
-                                    <TileContent footer="Be part of a comunity">
-                                        <NewsContent contentText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+                                <GenericTile backgroundImage="utils/img/selfLove.jpg" frameType="TwoByOne" size="Responsive">
+                                    <TileContent footer="{i18n>footer4}">
+                                        <NewsContent contentText="{i18n>text4}" />
                                     </TileContent>
                                 </GenericTile>
                             </SlideTile>
                             <HBox class="sapUiMediumMargin" width="100%" height="100%" alignItems="End" justifyContent="Center">
-                                <Button id="loginButton" class="buttonClass" text="Login" press="goToLogin" type="Emphasized"/>
-                                <Button id="registerButton" text="Register" press="goToRegister" type="Transparent"/>
+                                <Button id="loginButton" class="buttonClass" text="{i18n>loginBtn}" press="goToLogin" type="Emphasized"/>
+                                <Button id="registerButton" text="{i18n>registerBtn}" press="goToRegister" type="Transparent"/>
                             </HBox>
                         </VBox>
                     </f:content>
