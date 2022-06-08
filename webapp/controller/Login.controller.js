@@ -14,6 +14,17 @@ sap.ui.define([
 
         _onObjectMatched: async function (oEvent) {
             this.removeChatBot();
+            this.clearFields();
+        },
+
+        clearFields: function () {
+            let loginModel = this.getView().getModel("loginModel").getData();
+            debugger;
+            if (loginModel.email != "undefined" && loginModel.password != "undefined") {
+                debugger;
+                this.getView().getModel("loginModel").setProperty("/email", "");
+                this.getView().getModel("loginModel").setProperty("/password", "");
+            }
         },
 
         onGoBackToWelcome: function () {

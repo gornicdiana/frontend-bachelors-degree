@@ -14,6 +14,20 @@ sap.ui.define([
 
         _onObjectMatched: async function (oEvent) {
             this.removeChatBot();
+            this.clearFields();
+        },
+
+        clearFields: function () {
+            let registerModel = this.getView().getModel("registerModel").getData();
+            debugger;
+            if (registerModel.email != "undefined") {
+                debugger;
+                this.getView().getModel("registerModel").setProperty("/registrationNumber", "");
+                this.getView().getModel("registerModel").setProperty("/username", "");
+                this.getView().getModel("registerModel").setProperty("/email", "");
+                this.getView().getModel("registerModel").setProperty("/confirmPassword", "");
+                this.getView().getModel("registerModel").setProperty("/password", "");
+            }
         },
 
         onGoBackToWelcome: function () {
