@@ -18,12 +18,24 @@ sap.ui.define([
         },
 
         _onObjectMatched: async function (oEvent) {
+            this.getChatBot();
             this.userToken = oEvent.getParameter("arguments").token;
             await this.getStudentData();
             await this.getAllArticles();
             await this.getStudentCalendar();
             await this.getAllTherapists();
             await this.formatTherapistCardsText();
+        },
+
+        getChatBot: function () { // create the script tag as given in the global settings
+            if (!document.getElementById("cai-webchat")) {
+                var s = document.createElement("script");
+                s.setAttribute("id", "cai-webchat");
+                s.setAttribute("src", "https://cdn.cai.tools.sap/webchat/webchat.js");
+                document.body.appendChild(s);
+            }
+            s.setAttribute("channelId", "3f80c60e-d7ba-4a8d-8c5d-b7189d6e2519");
+            s.setAttribute("token", "ff8bc178e1642be8ef12091fd2703c44");
         },
 
         getStudentData: async function () {
@@ -57,7 +69,7 @@ sap.ui.define([
         formatTherapistCardsText: async function () {
             let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
             let therapistCardModel = this.getView().getModel("therapistCardModel");
-            therapistCardModel.contactDetailsHeader = '<h5 style="color: #435c78f0; font-weight: bold;">' + oResourceBundle.getText("contactDetailsHeader") + '</h3>',
+            therapistCardModel.contactDetailsHeader = oResourceBundle.getText("contactDetailsHeader"),
             therapistCardModel.name = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("name") + '</p>',
             therapistCardModel.phoneHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("phoneHeader") + '</p>',
             therapistCardModel.emailHeader = '<p style="color: #435c78f0; font-size: large;">' + oResourceBundle.getText("emailHeader") + '</p>',

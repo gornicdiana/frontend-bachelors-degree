@@ -130,3 +130,11 @@ span.sapMBtnInner.sapMBtnEmphasized {
 .sapMLabel .sapMLabelTextWrapper {
   font-size: medium;
 }
+
+html,
+body,
+body > div,
+#container,
+#container-uiarea {
+  height: 0%;
+}
