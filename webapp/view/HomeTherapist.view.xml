@@ -7,7 +7,7 @@
     xmlns:card="sap.f.cards"
     xmlns:f="sap.f">
 
-    <SplitApp id="homeSplitAppID" class="splitClass">
+    <SplitApp id="homeSplitAppID" class="therapistHeader">
         <detailPages>
             <Page id="myArticlesSplitID" title="My Articles" class="homeBackgroundClass">
                 <headerContent>

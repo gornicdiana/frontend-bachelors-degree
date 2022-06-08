@@ -40,6 +40,10 @@
   background-color: #02135d !important;
 }
 
+.sapMIBar.sapMHeader-CTX .therapistHeader {
+  background-color: rgb(36, 53, 5) !important;
+}
+
 .sapMIBar-CTX .sapMTitle {
   color: white;
 }

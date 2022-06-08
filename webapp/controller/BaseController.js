@@ -42,6 +42,13 @@ sap.ui.define([
         errorHandler: function (errorMessageName) {
             let msg = this.getView().getModel("i18n").getResourceBundle().getText(errorMessageName);
             MessageToast.show(msg);
+        },
+
+        removeChatBot: function () {
+            if (document.getElementById("cai-webchat")) {
+                document.body.removeChild(document.getElementById("cai-webchat-div"))
+            }
         }
+
     });
 });

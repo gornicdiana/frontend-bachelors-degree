@@ -4,9 +4,16 @@ sap.ui.define([
     "use strict";
 
     return BaseController.extend("licenta.controller.Register", {
-        onInit: function () {
+        onInit: async function () {
             let registerModel = new JSONModel();
             this.getView().setModel(registerModel, "registerModel");
+            let oRouter = this.getRouter();
+            oRouter.getRoute("Register").attachPatternMatched(this._onObjectMatched, this);
+
+        },
+
+        _onObjectMatched: async function (oEvent) {
+            this.removeChatBot();
         },
 
         onGoBackToWelcome: function () {
