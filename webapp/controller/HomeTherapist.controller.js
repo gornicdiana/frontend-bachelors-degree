@@ -18,7 +18,6 @@ sap.ui.define([
 
         // GET DATA
         _onObjectMatched: async function (oEvent) {
-
             let articleModel = new JSONModel();
             this.getView().setModel(articleModel, "articleModel");
             this.userToken = oEvent.getParameter("arguments").token;
@@ -186,6 +185,12 @@ sap.ui.define([
 
         onPressLogout: function () {
             this.getRouter().navTo("Welcome");
+        },
+
+        goToEdit: function () {
+            debugger;
+            this.getView().byId("ObjectPageLayout").scrollToSection("profileSection");
+            debugger
         }
     });
 });

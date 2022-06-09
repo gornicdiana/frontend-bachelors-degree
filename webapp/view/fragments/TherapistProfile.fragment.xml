@@ -31,8 +31,7 @@
                     <FormattedText htmlText="{therapistCardModel>/description}" class="sapUiTinyMarginTop"/>
                     <TextArea value="{therapistModel>/info}" width="30rem" height="10rem" class="sapUiTinyMarginTop"/>
                     <HBox justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
-                        <Button text="{i18n>updateProfileButton}" press="onPressUpdateProfileButton" class="sapUiSmallMarginEnd"/>
-                        <Button text="Logout" type="Emphasized" press="onPressLogout" />
+                        <Button text="{i18n>updateProfileButton}" type="Emphasized" press="onPressUpdateProfileButton" class="sapUiSmallMarginEnd"/>
                     </HBox>
                 </VBox>
             </f:content>

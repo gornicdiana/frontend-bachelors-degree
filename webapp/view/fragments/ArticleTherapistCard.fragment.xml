@@ -3,8 +3,8 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards">
-    <VBox items="{therapistArticleModel>/}">
-        <f:Card id="therapistArticleCardID" class="sapUiMediumMargin" width="90%">
+    <VBox items="{therapistArticleModel>/}" width="100%" alignItems="Center">
+        <f:Card id="therapistArticleCardID" class="sapUiMediumMargin" width="97%">
             <f:header>
                 <card:Header title="{therapistArticleModel>title}"/>
             </f:header>
