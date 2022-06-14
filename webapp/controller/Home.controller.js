@@ -10,7 +10,6 @@ sap.ui.define([
     "use strict";
 
     return BaseController.extend("licenta.controller.Home", {
-        // PAGE INITIALIZATION
         onInit: async function () {
             this.onSetModels();
             let oRouter = this.getRouter();
@@ -77,7 +76,6 @@ sap.ui.define([
             this.getView().getModel("therapistCardModel").setData(therapistCardModel);
         },
 
-        // SPLIT APP PAGES NAVIGATION
         onListItemPress: function (oEvent) {
             let pageID = oEvent.getParameter("listItem").getCustomData()[0].getValue();
             this.getSplitAppObj().toDetail(this.createId(pageID));
@@ -91,8 +89,6 @@ sap.ui.define([
             return result;
         },
 
-        // ARTICLES PAGE
-        // TO DO: nu se afiseaza frumos tag-urile
         onPressCategoryLabel: function (oEvent) {
             let allArticles = this.getView().getModel("articleModel").getData();
             let category = oEvent.getSource().getProperty("text");
@@ -163,8 +159,6 @@ sap.ui.define([
             this.pProfilePopover.close();
         },
 
-        // ALL THERAPISTS PAGE
-        // TO DO: sa nu apara make appointment in dialogul cu profile aici
         onPressMakeAppointment: function () {
             if (!this.pCreatePopover) {
                 Fragment.load({name: "licenta.view.fragments.CreateAppointmentDialog", controller: this}).then((oCreatePopover) => {
@@ -197,7 +191,6 @@ sap.ui.define([
             this.getStudentCalendar();
         },
 
-        // PROFILE PAGE
         onPressLogout: function () {
             this.getRouter().navTo("Welcome");
         },

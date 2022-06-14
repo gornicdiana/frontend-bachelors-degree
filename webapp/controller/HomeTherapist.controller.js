@@ -126,10 +126,6 @@ sap.ui.define([
             });
         },
 
-        // CALENDAR PAGE
-        // TO DO: NU ARATA BINE ORA INITIAL IN CALENDAR
-
-        // TO DO: crapa la click pe a data fara appointment si butoanele nu fac nimic
         onAppointmentSelect: function (oEvent) {
             let source = oEvent.getSource();
             let appointment = oEvent.getParameter("appointment");
@@ -173,7 +169,6 @@ sap.ui.define([
             var oStartDate = oEvent.getParameter("date");
         },
 
-        // PROFILE PAGE
         onPressUpdateProfileButton: async function () {
             const infoData = this.getView().getModel("therapistModel").getData().info;
             const token = this.userToken;
