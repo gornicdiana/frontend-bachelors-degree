@@ -38,7 +38,7 @@
                     <FormattedText htmlText="{therapistModel>information}"/>
                 </VBox>
 
-                <Button text="Make an appointment" type="Emphasized" class="sapUiSmallMargin" press="onPressMakeAppointment"/>
+                <Button text="{i18n>makeAppointment}" type="Emphasized" class="sapUiSmallMargin" press="onPressMakeAppointment"/>
             </VBox>
         </f:GridListItem>
     </f:GridList>

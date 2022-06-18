@@ -13,17 +13,17 @@
 					<f:content>
 						<VBox id="formVBox" alignItems="Center" justifyContent="Center" class="sapUiLargeMarginTop" width="100%" height="100%">
 							<core:Icon src="sap-icon://customer" size="2.5rem"/>
-							<Label text="Login"/>
+							<Label text="{i18n>login}"/>
 							<VBox id="inputsVBox" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" width="100%">
 								<Label id="emailLabelID" class="sapUiSmallMarginTop" text="Email"/>
 								<Input id="emailInputID" class="sapUiTinyMarginTop" type="Email" placeholder="{i18n>emailInput}" value="{loginModel>/email}" width="250px"/>
 								<Label id="passwordLabelID" class="sapUiSmallMarginTop" text="Password"/>
 								<Input id="passwordInputID" class="sapUiTinyMarginTop" type="Password" placeholder="{i18n>passwordInput}" value="{loginModel>/password}" width="250px"/>
 							</VBox>
-							<Button id="loginButton" type="Emphasized" text="Login" press="pressToLogin" class="sapUiTinyMarginTop"/>
+							<Button id="loginButton" type="Emphasized" text="{i18n>login}" press="pressToLogin" class="sapUiTinyMarginTop"/>
 							<VBox id="buttonsHBox" alignItems="Center" class="sapUiMediumMarginTop" width="100%" height="100%">
 								<Label id="registerLabelID" text="{i18n>registerText}"/>
-								<Button id="registerButton" type="Transparent" text="Register" press="goToRegister"/>
+								<Button id="registerButton" type="Transparent" text="{i18n>registerBtn}" press="goToRegister"/>
 							</VBox>
 						</VBox>
 					</f:content>

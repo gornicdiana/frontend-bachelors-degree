@@ -7,21 +7,21 @@
 
     <SplitApp id="homeSplitAppID" class="splitClass">
         <detailPages>
-            <Page id="articlesSplitID" title="Articles" class="articlePageClass homeBackgroundClass">
+            <Page id="articlesSplitID" title="{i18n>Articles}" class="articlePageClass homeBackgroundClass">
                 <HBox width="100%" class="sapUiSmallMargin">
-                    <Button class="allButtonClass" text="All" press="onPressAll"/>
+                    <Button class="allButtonClass" text="{i18n>All}" press="onPressAll"/>
                     <Toolbar id="toolbar" content="{category>/Categories}" width="100%">
                         <Button text="{category>name}" press="onPressCategoryLabel"/>
                     </Toolbar>
                 </HBox>
                 <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.ArticleCard" type="XML" />
             </Page>
-            <Page id="therapistsSplitID" title="All Therapists" class="homeBackgroundClass">
+            <Page id="therapistsSplitID" title="{i18n>allTherapists}" class="homeBackgroundClass">
                 <c:Fragment id="therapistFragmentID" fragmentName="licenta.view.fragments.TherapistCard" type="XML" />
             </Page>
-            <Page id="accountSplitID" title="Account" class="homeBackgroundClass">
+            <Page id="accountSplitID" title="{i18n>Account}" class="homeBackgroundClass">
                 <headerContent>
-                    <Button text="Logout" type="Emphasized" press="onPressLogout"/>
+                    <Button text="{i18n>Logout}" type="Emphasized" press="onPressLogout"/>
                 </headerContent>
                 <c:Fragment id="articleFragmentID" fragmentName="licenta.view.fragments.AccountCards" type="XML" />
             </Page>
@@ -30,9 +30,9 @@
             <Page id="masterHome" backgroundDesign="List" class="splitMenu">
                 <List id="listHomeID" itemPress=".onListItemPress">
                     <items>
-                        <StandardListItem id="articlesListID" title="Articles" type="Active" custom:to="articlesSplitID" class="splitButton"/>
-                        <StandardListItem id="therapistsListID" title=" All Therapists" type="Active" custom:to="therapistsSplitID" class="splitButton"/>
-                        <StandardListItem id="accountListID" title="Account" type="Active" custom:to="accountSplitID" class="splitButton"/>
+                        <StandardListItem id="articlesListID" title="{i18n>Articles}" type="Active" custom:to="articlesSplitID" class="splitButton"/>
+                        <StandardListItem id="therapistsListID" title="{i18n>allTherapists}" type="Active" custom:to="therapistsSplitID" class="splitButton"/>
+                        <StandardListItem id="accountListID" title="{i18n>Account}" type="Active" custom:to="accountSplitID" class="splitButton"/>
                     </items>
                 </List>
             </Page>

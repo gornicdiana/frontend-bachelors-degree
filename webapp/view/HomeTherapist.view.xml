@@ -21,13 +21,13 @@
                     </m:FlexBox>
                 </snappedHeading>
                 <expandedContent>
-                    <m:Text text="Licensed Professional Counselor"/>
+                    <m:Text text="{i18n>lpc}"/>
                 </expandedContent>
                 <snappedContent>
-                    <m:Text text="Licensed Professional Counselor"/>
+                    <m:Text text="{i18n>lpc}"/>
                 </snappedContent>
                 <snappedTitleOnMobile>
-                    <m:Title text="Licensed Professional Counselor"/>
+                    <m:Title text="{i18n>lpc}"/>
                 </snappedTitleOnMobile>
                 <actions>
                     <m:OverflowToolbarButton icon="sap-icon://log" tooltip="Logout" type="Emphasized" press="onPressLogout">
@@ -35,7 +35,7 @@
                             <m:OverflowToolbarLayoutData priority="NeverOverflow"/>
                         </m:layoutData>
                     </m:OverflowToolbarButton>
-                    <m:Button text="Add Article" press="onPressAddArticle"/>
+                    <m:Button text="{i18n>AddArticle}" press="onPressAddArticle"/>
                 </actions>
             </ObjectPageDynamicHeaderTitle>
         </headerTitle>
@@ -54,21 +54,21 @@
         <sections>
             <ObjectPageSection titleUppercase="false" id="articlesSection">
                 <subSections>
-                    <ObjectPageSubSection title="Articles" titleUppercase="false">
+                    <ObjectPageSubSection title="{i18n>Articles}" titleUppercase="false">
                         <c:Fragment id="articleTherapistFragmentID" fragmentName="licenta.view.fragments.ArticleTherapistCard" type="XML"/>
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>
             <ObjectPageSection id="calendarSection">
                 <subSections>
-                    <ObjectPageSubSection title="Calendar" titleUppercase="false">
+                    <ObjectPageSubSection title="{i18n>Calendar}" titleUppercase="false">
                         <c:Fragment id="calendarTherapistFragmentID" fragmentName="licenta.view.fragments.Calendar" type="XML" />
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>
             <ObjectPageSection id="profileSection">
                 <subSections>
-                    <ObjectPageSubSection title="Profile" titleUppercase="false">
+                    <ObjectPageSubSection title="{i18n>Profile}" titleUppercase="false">
                         <c:Fragment id="therapistProfileFragmentID" fragmentName="licenta.view.fragments.TherapistProfile" type="XML" />
                     </ObjectPageSubSection>
                 </subSections>

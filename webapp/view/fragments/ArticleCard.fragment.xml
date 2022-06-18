@@ -16,7 +16,7 @@
                         <FormattedText id="contentID" htmlText="{articleModel>body}"/>
                     </VBox>
                     <VBox id="contactButtonVBoxID" justifyContent="End" class="sapUiSmallMargin">
-                        <Button alignItems="End" id="contactButtonID" text="Contact Therapist" press="onPressContactTherapistFromArticle"/>
+                        <Button alignItems="End" id="contactButtonID" text="{i18n>TherapistInfo}" press="onPressContactTherapistFromArticle"/>
                     </VBox>
                 </VBox>
             </f:content>

@@ -159,10 +159,10 @@ sap.ui.define([
                 link
             }, token).then(async (data) => {})
             MessageToast.show("Link sent!");
-            this.pDetailsPopover.close();
+            this._closeDetailsDialog();
         },
 
-        onDenyButton: function () {
+        _closeDetailsDialog: function () {
             this.pDetailsPopover.close();
         },
 

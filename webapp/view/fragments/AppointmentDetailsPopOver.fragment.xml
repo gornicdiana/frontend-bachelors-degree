@@ -1,19 +1,19 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core">
-    <ResponsivePopover id="detailsPopover" title="Appointment" class="sapUiResponsivePadding--header" placement="Auto">
+    <ResponsivePopover id="detailsPopover" title="{18n>Appointment}" class="sapUiResponsivePadding--header" placement="Auto" contentHeight="200px">
         <beginButton>
-            <Button text="Accept" type="Emphasized" press="onAcceptAppointment"/>
+            <Button text="{i18n>Accept}" type="Emphasized" press="onAcceptAppointment"/>
         </beginButton>
         <endButton>
-            <Button text="Deny" press=""/>
+            <Button text="{i18n>Deny}" press="_closeDetailsDialog"/>
         </endButton>
         <f:SimpleForm id="appointmentEditForm" editable="false" layout="ResponsiveGridLayout" singleContainerFullSize="false">
-            <Label text="Name" labelFor="moreInfoText"/>
+            <Label text="{i18n>name}" labelFor="moreInfoText"/>
             <Text id="moreInfoText" text="{appointmentDetailsModel>/name}"/>
-            <Label text="From" labelFor="startDateText"/>
+            <Label text="{i18n>From}" labelFor="startDateText"/>
             <Text id="startDateText" text="{appointmentDetailsModel>/startDate}"/>
-            <Label text="To" labelFor="endDateText"/>
+            <Label text="{i18n>To}" labelFor="endDateText"/>
             <Text id="endDateText" text="{appointmentDetailsModel>/endDate}"/>
             <Input placeholder="{i18n>enterLink}" value="{appointmentDetailsModel>/link}"/>
         </f:SimpleForm>

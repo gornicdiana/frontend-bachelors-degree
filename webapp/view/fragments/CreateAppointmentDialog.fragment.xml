@@ -4,24 +4,24 @@
     xmlns:core="sap.ui.core">
     <Dialog id="createAppointmentDialogID" title="Title">
         <beginButton>
-            <Button text="OK" type="Emphasized" press="onSaveNewAppointment"/>
+            <Button text="{i18n>OK}" type="Emphasized" press="onSaveNewAppointment"/>
         </beginButton>
         <endButton>
-            <Button text="Cancel" press="onCloseAppointmentDialog"/>
+            <Button text="{i18n>Cancel}" press="onCloseAppointmentDialog"/>
         </endButton>
         <l:VerticalLayout class="sapUiContentPadding" width="100%">
             <f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false">
-                <Label text="Title"/>
+                <Label text="{i18n>Title}"/>
                 <Input id="appTitle" value="{newAppointmentModel>/name}" placeholder="Appointment title..."/>
-                <ComboBox id="therapistsComboBoxID" items="{therapistModel>/}" value="{newAppointmentModel>/therapist}" change="onGetSelectedItem" placeholder="Choose a therapist...">
+                <ComboBox id="therapistsComboBoxID" items="{therapistModel>/}" value="{newAppointmentModel>/therapist}" change="onGetSelectedItem" placeholder="{i18n>chooseTherapist}">
                     <core:Item text="{therapistModel>lastname} {therapistModel>firstname}"/>
                 </ComboBox>
-                <Label text="From"/>
+                <Label text="{i18n>From}"/>
                 <DateTimePicker required="true" displayFormat="short" maxDate="{19:00:00}" change="handleDateTimePickerChange" value="{newAppointmentModel>/startDate}"/>
-                <Label text="To"/>
+                <Label text="{i18n>To}"/>
                 <DateTimePicker required="true" displayFormat="short" maxDate="{20:00:00}" change="handleDateTimePickerChange" value="{newAppointmentModel>/endDate}"/>
-                <Label text="Category"/>
-                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" value="{newAppointmentModel>/category}" change="onGetSelectedItem" placeholder="Choose a category...">
+                <Label text="{i18n>Category}"/>
+                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" value="{newAppointmentModel>/category}" change="onGetSelectedItem" placeholder="{i18n>categoryPlaceholder}">
                     <core:Item key="{category>key}" text="{category>name}"/>
                 </ComboBox>
             </f:SimpleForm>

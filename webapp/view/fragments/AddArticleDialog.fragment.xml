@@ -1,25 +1,25 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout">
-    <Dialog id="addArticleDialogID" class="sapUiSmallMarginBeginEnd" title="Add an Article">
+    <Dialog id="addArticleDialogID" class="sapUiSmallMarginBeginEnd" title="{i18n>addArticle}">
         <buttons>
             <Button text="{i18n>Save}" press="onSaveArticle" type="Emphasized"/>
             <Button text="{i18n>Cancel}" press="onCloseDialog" />
         </buttons>
         <VBox width="700px">
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
-                <Label text="Title"/>
-                <TextArea width="100%" placeholder="Add a title..." value="{articleModel>/title}"/>
+                <Label text="{i18n>Title}"/>
+                <TextArea width="100%" placeholder="{i18n>addTitlePlaceholder}" value="{articleModel>/title}"/>
             </VBox>
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
-                <Label text="Labels"/>
-                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem" placeholder="Choose a category...">
+                <Label text="{i8n>Labels}"/>
+                <ComboBox id="categoriesComboBoxID" items="{category>/Categories}" change="onGetSelectedItem" placeholder="{i18n>categoryPlaceholder}">
                     <core:Item key="{category>key}" text="{category>name}" class="categoryClass"/>
                 </ComboBox>
             </VBox>
             <VBox class="sapUiTinyMarginBeginEnd sapUiTinyMarginTopBottom">
-                <Label text="Content"/>
-                <TextArea width="100%" value="{articleModel>/body}" placeholder="Add content..."/>
+                <Label text="{i18n>Content}"/>
+                <TextArea width="100%" value="{articleModel>/body}" placeholder="{i18n>contentPlaceholder}"/>
             </VBox>
         </VBox>
     </Dialog>

@@ -21,9 +21,9 @@
                     <f:content>
                         <HBox>
                             <VBox class="sapUiSmallMargin" alignItems="Start" width="50%">
-                                <Label text="Therapist: {appointmentModel>therapist}"/>
-                                <Label text="Date: {appointmentModel>startDate}"/>
-                                <Label text="Category: {appointmentModel>category}"/>
+                                <Label text="{i18n>Therapist}: {appointmentModel>therapist}"/>
+                                <Label text="{i18n>Date}: {appointmentModel>startDate}"/>
+                                <Label text="{18n>Category}: {appointmentModel>category}"/>
                             </VBox>
                             <VBox justifyContent="End" alignContent="End">
                                 <BusyIndicator visible="{= ${appointmentModel>response} === true ? true : false}" text="{i18n>waiting}"/>

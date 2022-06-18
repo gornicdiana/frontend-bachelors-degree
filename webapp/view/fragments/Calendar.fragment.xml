@@ -5,10 +5,10 @@
     xmlns:unified="sap.ui.unified">
 
     <VBox class="sapUiSmallMargin calendarClass">
-        <SinglePlanningCalendar id="myCalendar" title= "My Calendar" fullDay="false" startHour="8" endHour="20" appointmentSelect="onAppointmentSelect" headerDateSelect="onHeaderDaySelect" startDateChange="handleStartDateChange" appointments="{appointmentModel>/}">
+        <SinglePlanningCalendar id="myCalendar" title= "{i18n>MyCalendar}" fullDay="false" startHour="8" endHour="20" appointmentSelect="onAppointmentSelect" headerDateSelect="onHeaderDaySelect" startDateChange="handleStartDateChange" appointments="{appointmentModel>/}">
             <views>
-                <SinglePlanningCalendarDayView key="DayView" title="Day" />
-                <SinglePlanningCalendarWorkWeekView key="WorkWeekView" title="Work Week" />
+                <SinglePlanningCalendarDayView key="DayView" title="{i18n>Day}" />
+                <SinglePlanningCalendarWorkWeekView key="WorkWeekView" title="{i18n>WorkWeek}" />
             </views>
             <appointments>
                 <unified:CalendarAppointment title= "{appointmentModel>name}" startDate= "{appointmentModel>startDate}" endDate= "{appointmentModel>endDate}">

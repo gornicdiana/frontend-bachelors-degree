@@ -16,7 +16,7 @@
                         <FormattedText htmlText="{therapistArticleModel>body}"/>
                     </VBox>
                     <VBox alignItems="End">
-                        <Button text="Delete" type="Emphasized" press="onDeleteArticle"/>
+                        <Button text="{i18n>Delete}" type="Emphasized" press="onDeleteArticle"/>
                     </VBox>
                 </VBox>
             </f:content>
