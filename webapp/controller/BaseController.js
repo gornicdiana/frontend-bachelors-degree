@@ -17,6 +17,7 @@ sap.ui.define([
             this.getView().setModel(new JSONModel(), "therapistProfileModel");
             this.getView().setModel(new JSONModel(), "newAppointmentModel");
             this.userToken = "";
+            this.appointmentID = "";
         },
 
         getRouter: function () {

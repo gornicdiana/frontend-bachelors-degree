@@ -50,7 +50,6 @@ sap.ui.define([
 
         getStudentCalendar: async function () {
             const appointments = await this.get(URLs.getAppointmentUrl() + '/studentCalendar', this.userToken);
-
             appointments.forEach((appointment) => {
                 appointment.create = true;
                 appointment.startDate = new Date(appointment.startDate).toDateString();
@@ -125,14 +124,12 @@ sap.ui.define([
         },
 
         _findTherapist: function (oEvent) {
-            debugger;
             let selectedTherapistPath = oEvent.getSource().getBindingContext("articleModel").getPath();
             selectedTherapistPath = selectedTherapistPath.slice(-1);
             let selectedTherapist = this.getView().getModel("articleModel").getData()[selectedTherapistPath].email;
             let therapists = this.getView().getModel("therapistModel").getData();
             therapists.forEach((therapist) => {
                 if (therapist.email == selectedTherapist) {
-                    debugger;
                     this.getView().getModel("therapistProfileModel").setData(therapist);
                 }
             })
@@ -185,7 +182,8 @@ sap.ui.define([
                 }
             })
             await this.post(URLs.getAppointmentUrl() + "/add", newAppointmentData, this.userToken).then(async (data) => {
-                console.log(data);
+                debugger;
+                this.appointmentID = data._id;
             });
             this.onCloseAppointmentDialog();
             this.getStudentCalendar();

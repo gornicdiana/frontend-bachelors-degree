@@ -10,14 +10,14 @@
             <ObjectPageDynamicHeaderTitle>
                 <expandedHeading>
                     <m:HBox>
-                        <m:Title text="{therapistModel>/firstName} {therapistModel>/lastName}" wrapping="true"/>
+                        <m:Title text="{therapistModel>/firstname} {therapistModel>/lastname}" wrapping="true"/>
                         <m:ObjectMarker type="Favorite" class="sapUiTinyMarginBegin"/>
                     </m:HBox>
                 </expandedHeading>
                 <snappedHeading>
                     <m:FlexBox fitContainer="true" alignItems="Center">
                         <m:Avatar src="{therapistModel>/picture}" class="sapUiTinyMarginEnd"/>
-                        <m:Title text="{therapistModel>/firstName} {therapistModel>/lastName}" wrapping="true"/>
+                        <m:Title text="{therapistModel>/firstname} {therapistModel>/lastname}" wrapping="true"/>
                     </m:FlexBox>
                 </snappedHeading>
                 <expandedContent>

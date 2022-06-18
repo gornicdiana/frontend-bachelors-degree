@@ -20,7 +20,7 @@
                     <FormattedText htmlText="{therapistProfileModel>/email}"/>
                 </VBox>
                 <VBox class="sapUiSmallMargin" width="100%" alignItems="End">
-                    <Image src="utils/img/doctor1.jpg" height="200px" width="300px"/>
+                    <Image src="{therapistProfileModel>/picture}" height="200px" width="300px"/>
                 </VBox>
             </HBox>
             <HBox alignItems="Center" class="sapUiSmallMargin">

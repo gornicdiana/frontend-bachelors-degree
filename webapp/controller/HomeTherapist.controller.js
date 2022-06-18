@@ -32,8 +32,8 @@ sap.ui.define([
             this.getView().getModel("therapistModel").setProperty("/email", getdata.email);
             this.getView().getModel("therapistModel").setProperty("/username", getdata.username);
             this.getView().getModel("therapistModel").setProperty("/phone", getdata.phone);
-            this.getView().getModel("therapistModel").setProperty("/firstname", '<h5 style="color: #0854A0;">' + getdata.firstname + '</h5>');
-            this.getView().getModel("therapistModel").setProperty("/lastname", '<h5 style="color: #0854A0; font-weight: bold;">' + getdata.lastname + '</h5>');
+            this.getView().getModel("therapistModel").setProperty("/firstname", getdata.firstname);
+            this.getView().getModel("therapistModel").setProperty("/lastname", getdata.lastname);
             this.getView().getModel("therapistModel").setProperty("/info", getdata.information);
             this.getView().getModel("therapistModel").setProperty("/picture", getdata.picture);
         },
@@ -98,6 +98,7 @@ sap.ui.define([
 
         onSaveArticle: async function () {
             const newArticleData = this.getView().getModel("articleModel").getData();
+            debugger;
             await this.post(URLs.getArticleUrl() + "/add", newArticleData, this.userToken).then(async (data) => {})
             this.onCloseDialog();
             this.getTherapistArticles();
@@ -137,6 +138,7 @@ sap.ui.define([
             this.getView().getModel("appointmentDetailsModel").setProperty("/startDate", startDate);
             this.getView().getModel("appointmentDetailsModel").setProperty("/endDate", endDate);
             this.getView().getModel("appointmentDetailsModel").setProperty("/name", name);
+            this.getView().getModel("appointmentDetailsModel").setProperty("/response", false);
             this.getView().getModel("appointmentDetailsModel").setProperty("/link", "");
             if (!this.pDetailsPopover) {
                 Fragment.load({name: "licenta.view.fragments.AppointmentDetailsPopOver", controller: this}).then((oDetailsPopover) => {
@@ -150,6 +152,7 @@ sap.ui.define([
         },
 
         onAcceptAppointment: async function () {
+            this.getView().getModel("appointmentDetailsModel").setProperty("/response", true);
             let link = this.getView().getModel("appointmentDetailsModel").getData().link;
             const token = this.userToken;
             await this.put(URLs.getAppointmentUrl() + "/update", {

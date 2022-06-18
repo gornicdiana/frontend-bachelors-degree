@@ -26,6 +26,7 @@
                                 <Label text="Category: {appointmentModel>category}"/>
                             </VBox>
                             <VBox justifyContent="End" alignContent="End">
+                                <BusyIndicator visible="{= ${appointmentModel>response} === true ? true : false}" text="{i18n>waiting}"/>
                                 <Button type="Emphasized" text="Start Meeting" press=".openUrl(${appointmentModel>link}, true)"/>
                             </VBox>
                         </HBox>

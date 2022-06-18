@@ -9,19 +9,17 @@ sap.ui.define([
             let loginModel = new JSONModel();
             this.getView().setModel(loginModel, "loginModel");
             let oRouter = this.getRouter();
-            oRouter.getRoute("Login").attachPatternMatched(this._onObjectMatched, this);
+            oRouter.getRoute("Login").attachMatched(this._onObjectMatched, this);
         },
 
         _onObjectMatched: async function (oEvent) {
-            this.removeChatBot();
             this.clearFields();
+            this.removeChatBot();
         },
 
         clearFields: function () {
             let loginModel = this.getView().getModel("loginModel").getData();
-            debugger;
             if (loginModel.email != "undefined" && loginModel.password != "undefined") {
-                debugger;
                 this.getView().getModel("loginModel").setProperty("/email", "");
                 this.getView().getModel("loginModel").setProperty("/password", "");
             }
