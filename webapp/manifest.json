@@ -72,10 +72,6 @@
                     "earlyRequests": true,
                     "groupId": "$direct"
                 }
-            },
-            "category": {
-                "type": "sap.ui.model.json.JSONModel",
-                "uri": "utils/Categories.json"
             }
 
         },
